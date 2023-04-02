@@ -6,16 +6,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AddUserComponent } from './components/add-user/add-user.component';
-import { UserDetailComponent } from './components/user-detail/user-detail.component';
-import { UsersListComponent } from './components/users-list/users-list.component';
+import {LoginComponent} from "./components/login/login.component";
 
 @NgModule({
   declarations: [
     AppComponent,
-    AddUserComponent,
-    UserDetailComponent,
-    UsersListComponent,
+      LoginComponent,
   ],
   imports: [
     BrowserModule,
