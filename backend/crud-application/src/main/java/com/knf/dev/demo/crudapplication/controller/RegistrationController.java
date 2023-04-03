@@ -3,11 +3,13 @@ package com.knf.dev.demo.crudapplication.controller;
 import com.knf.dev.demo.crudapplication.entity.RegistrationUser;
 import com.knf.dev.demo.crudapplication.service.RegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-
+@RequestMapping("/api/v1")
 public class RegistrationController {
     @Autowired
     private RegistrationService service;
@@ -38,5 +40,15 @@ public class RegistrationController {
             throw new Exception("Bad credentials");
         }
         return userR;
+    }
+
+
+    //public ResponseStatus authenticate(@RequestBody RegistrationUser user){
+    //  return HttpStatus.OK;
+    // }
+
+    @PostMapping("/authenticate")
+    public RegistrationUser authenticate(@RequestBody RegistrationUser user){
+        return user;
     }
 }

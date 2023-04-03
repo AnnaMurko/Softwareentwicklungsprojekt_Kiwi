@@ -12,14 +12,24 @@ import {CrossOrigin} from "@angular-devkit/build-angular";
 export class RegistrationService {
   REST_API: string = 'https://localhost:8080/api/v1';
 
-  constructor(private http: HttpClient) {
-    
+  constructor(private httpClient: HttpClient) {
+
   }
 
   public loginUserFromRemote(user:RegistrationUser):Observable<any>
   {
     let API_URL = `${this.REST_API}/users`;
 
-  return  this.http.post<any>(API_URL, user);
+    return  this.httpClient.post<any>(API_URL, user);
   }
+
+
+  loginUser(UserCred:RegistrationUser){ //: Observable<any>
+    console.log("api call");
+    let API_URL = `${this.REST_API}/authenticate`;
+    console.log(UserCred.toString());
+    return this.httpClient.post(API_URL,UserCred);
+  }
+
+
 }

@@ -1,7 +1,7 @@
 export class RegistrationUser {
-  id!:number;
+  //id!:number;
   emailId!:string;
-  userName!:string;
+  //userName!:string;
   password!:string;
 
   constructor(){
