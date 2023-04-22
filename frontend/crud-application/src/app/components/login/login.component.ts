@@ -1,39 +1,35 @@
-import {Component, OnInit, NgZone} from '@angular/core';
-import {Router} from '@angular/router';
-import {FormGroup, FormBuilder, FormControl, Validators} from '@angular/forms';
+import { Component, OnInit, NgZone } from '@angular/core';
 import {RegistrationService} from "../../service/registration.service";
-import {RegistrationUser} from "../../service/registrationUser";
-
+import { FormGroup, FormBuilder } from '@angular/forms';
+import {Router} from "@angular/router";
 
 @Component({
-    selector: 'login',
+    selector: 'app-login',
     templateUrl: './login.component.html',
-    styleUrls: ['./login.component.scss'],
+    styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
-    user = new RegistrationUser();
-    userForm: FormGroup;
+export class LoginComponent {
 
-    constructor(public formBuilder: FormBuilder,private _service: RegistrationService, private route: Router,private ngZone: NgZone) {
-        this.userForm = this.formBuilder.group({
-            emailId: [''],
-            password: [''],
-        });
-    }
+    username!: string;
+    password!: string;
 
-    ngOnInit() {
-    }
+    constructor(private loginService: RegistrationService, private router:Router) {}
 
-
-    onLogin(): void {
-        if (this.userForm.valid) {
-            console.log("Hallo");
-            console.log(this.userForm.get("username"));
-            this.ngZone.run(() => this.route.navigateByUrl('/home'));
-            this._service.loginUser(this.userForm.value).subscribe(() => {
-                console.log("Hallo2");
-                this.ngZone.run(() => this.route.navigateByUrl('/home'));
-            });
+    login() {
+        if (this.username && this.password) {
+            this.loginService.login(this.username, this.password).subscribe(
+                () =>{ console.log('Anmeldung erfolgreich');
+                    this.router.navigate(['/home']);},
+                () => console.log('Anmeldung fehlgeschlagen')
+            );
         }
     }
+
 }
+
+
+
+
+
+
+
