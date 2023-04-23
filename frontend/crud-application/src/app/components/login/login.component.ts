@@ -22,7 +22,7 @@ export class LoginComponent {
             this.loginService.login(this.username, this.password).subscribe(
                 () =>{ console.log('Anmeldung erfolgreich');
                     this.userService.setLoggedInUser(new User(this.username,this.password));
-                  //  this.router.navigate(['/kinder'])
+                  this.router.navigate(['/childs'])
                     },
                 () => console.log('Anmeldung fehlgeschlagen')
             );

@@ -2,7 +2,7 @@ package com.knf.dev.demo.crudapplication.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "children")
+@Table(name = "childs")
 public class Child {
 
     @Id

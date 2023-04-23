@@ -1,0 +1,18 @@
+<div class="child-container">
+  <table>
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>User</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let child of children">
+      <td>{{child.id}}</td>
+      <td>{{child.name}}</td>
+      <td>{{child.user.username}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
