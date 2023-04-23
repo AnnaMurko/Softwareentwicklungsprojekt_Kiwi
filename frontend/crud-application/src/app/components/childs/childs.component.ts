@@ -9,13 +9,14 @@ import {Child} from "../../service/Child";
     styleUrls: ['./childs.component.css']
 })
 export class ChildsComponent implements OnInit {
+    REST_API: string = 'http://localhost:8080/api/v1';
 
     children!: Child[];
 
     constructor(private http: HttpClient) { }
 
     ngOnInit() {
-        this.http.get<Child[]>('/api/v1/childs').subscribe(children => {
+        this.http.get<Child[]>(`${this.REST_API}/childs`).subscribe(children => {
             this.children = children;
         });
     }
