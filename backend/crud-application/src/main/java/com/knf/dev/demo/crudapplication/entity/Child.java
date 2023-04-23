@@ -1,23 +1,21 @@
 package com.knf.dev.demo.crudapplication.entity;
-
 import jakarta.persistence.*;
+
 @Entity
-@Table(name = "Kinder")
-public class Kind {
+@Table(name = "children")
+public class Child {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name")
     private String name;
 
-    @Column(name = "alter")
-    private int alter;
-
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    @JoinColumn(name = "user_id")
     private User user;
+
+    // getter und setter
 
     public Long getId() {
         return id;
@@ -33,14 +31,6 @@ public class Kind {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public int getAlter() {
-        return alter;
-    }
-
-    public void setAlter(int alter) {
-        this.alter = alter;
     }
 
     public User getUser() {
