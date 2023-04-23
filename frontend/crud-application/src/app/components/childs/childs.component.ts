@@ -6,7 +6,7 @@ import {Child} from "../../service/Child";
 @Component({
     selector: 'app-childs',
     templateUrl: './childs.component.html',
-    styleUrls: ['./childs.component.css']
+    styleUrls: ['./childs.component.scss']
 })
 export class ChildsComponent implements OnInit {
     REST_API: string = 'http://localhost:8080/api/v1';
@@ -19,6 +19,11 @@ export class ChildsComponent implements OnInit {
         this.http.get<Child[]>(`${this.REST_API}/childs`).subscribe(children => {
             this.children = children;
         });
+    }
+
+    editChild()
+    {
+
     }
 
 }

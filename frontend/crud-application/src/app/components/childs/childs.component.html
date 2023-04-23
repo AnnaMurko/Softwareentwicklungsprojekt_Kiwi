@@ -1,17 +1,18 @@
-<div class="child-container">
+<h1 class="title">Kinder</h1>
+<div class="child-list">
   <table>
     <thead>
     <tr>
       <th>ID</th>
       <th>Name</th>
-      <th>User</th>
+      <th></th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let child of children">
-      <td>{{child.id}}</td>
-      <td>{{child.name}}</td>
-      <td>{{child.user.username}}</td>
+      <td class="id-column">{{child.id}}</td>
+      <td class="name-column">{{child.name}}</td>
+      <td><button class="edit-button" (click)="editChild()">Bearbeiten</button></td>
     </tr>
     </tbody>
   </table>
