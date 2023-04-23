@@ -18,4 +18,5 @@ public class ChildController {
     public List<Child> getAllChildren() {
         return childsRepository.findAll();
     }
+
 }

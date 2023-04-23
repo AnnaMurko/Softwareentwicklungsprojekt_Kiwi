@@ -1,5 +1,6 @@
 package com.knf.dev.demo.crudapplication.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -8,6 +9,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "users")
+@JsonIgnoreProperties("children")
 public class User {
 
     @Id
@@ -17,8 +19,6 @@ public class User {
     private String username;
 
     private String password;
-
-    // getter und setter
 
     public Long getId() {
         return id;
@@ -47,12 +47,22 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Child> children = new ArrayList<>();
 
+    @JsonIgnoreProperties({"children"})
     public List<Child> getChildren() {
         return children;
     }
 
     public void setChildren(List<Child> children) {
         this.children = children;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 
 }
