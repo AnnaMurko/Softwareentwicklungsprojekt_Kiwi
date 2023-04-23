@@ -19,7 +19,7 @@ export class LoginComponent {
         if (this.username && this.password) {
             this.loginService.login(this.username, this.password).subscribe(
                 () =>{ console.log('Anmeldung erfolgreich');
-                    this.router.navigate(['/home']);},
+                    this.router.navigate(['/kinder']);},
                 () => console.log('Anmeldung fehlgeschlagen')
             );
         }
