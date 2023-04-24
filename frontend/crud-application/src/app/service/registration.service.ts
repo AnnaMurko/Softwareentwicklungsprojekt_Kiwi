@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {Observable} from "rxjs";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {CrossOrigin} from "@angular-devkit/build-angular";
 
 @Injectable({
@@ -17,9 +17,10 @@ export class RegistrationService {
     return this.httpClient.post<any>(`${this.REST_API}/login`, { username: username, password: password });
   }
 
- public getUserID(username: string): Observable<number> {
-    return this.httpClient.get<number>(`http://localhost:8080/api/user/${username}/id`);
-  }
+    public getUserID(username: string): Observable<number> {
+        const headers = new HttpHeaders().set('Access-Control-Allow-Origin', '*');
+        return this.httpClient.get<number>(`${this.REST_API}/users/${username}/id`, { headers: headers });
+    }
 }
 
 

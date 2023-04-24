@@ -17,35 +17,24 @@ export class LoginComponent {
 
     constructor(private loginService: RegistrationService, private userService: UserService, private router: Router) {
     }
-
     login() {
         if (this.username && this.password) {
 
-            this.loginService.login(this.username, this.password).subscribe(
+            this.loginService.getUserID(this.username).subscribe(
                 (response: any) => {
-                    console.log('Anmeldung erfolgreich');
-
-                    this.loginService.getUserID(this.username).subscribe(
-                        (userID: number) => {
-                            const user = new User(this.username, this.password, userID);
-                            this.userService.setLoggedInUser(user);
-                            this.router.navigate(['/childs']);
-                        },
-                        () => console.log('Fehler beim Abrufen der Benutzer-ID')
-                    );
+                    console.log('API-Antwort:', response);
+                    if (response) {
+                        const user = new User(this.username, this.password, response);
+                        this.userService.setLoggedInUser(user);
+                        console.log(this.userService.getLoggedInUser());
+                        this.router.navigate(['/childs']);
+                    } else {
+                        console.log('Ungültige Antwort: userID nicht gefunden');
+                    }
                 },
-                () => console.log('Anmeldung fehlgeschlagen')
+                (error) => console.log('Fehler beim Abrufen der Benutzer-ID', error)
             );
         }
-    }
-}
-
-
-
-
-
-
-
-
+    }}
 
 

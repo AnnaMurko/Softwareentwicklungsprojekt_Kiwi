@@ -26,10 +26,13 @@ export class ChildsComponent implements OnInit {
         });
     }
     filterChildrenByUser(children: Child[]) {
-        return children.filter(child =>{ child.userId === this.userService.getLoggedInUser().id;
-            console.log(child.userId)  ;
-            console.log(child.id)  ;
-            console.log(child.name)  ;
+        const loggedInUserId = this.userService.getLoggedInUser().id;
+        console.log(loggedInUserId);
+        return children.filter(child => {
+            console.log(child.userId);
+            console.log(child.id);
+            console.log(child.name);
+            return child.userId === loggedInUserId;
         });
     }
 
