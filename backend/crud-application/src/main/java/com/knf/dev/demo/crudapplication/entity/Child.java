@@ -2,7 +2,6 @@ package com.knf.dev.demo.crudapplication.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
-
 @Entity
 @Table(name = "childs")
 @JsonIgnoreProperties("user")
@@ -35,13 +34,17 @@ public class Child {
     public void setName(String name) {
         this.name = name;
     }
-    @JsonIgnoreProperties({"user"})
+
     public User getUser() {
         return user;
     }
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Long getUserId() {
+        return user.getId();
     }
 
     // toString method

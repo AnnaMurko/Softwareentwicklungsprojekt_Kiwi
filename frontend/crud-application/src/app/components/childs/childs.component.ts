@@ -1,8 +1,9 @@
 
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Child} from "../../service/Child";
 import {UserService} from "../../service/user.service";
+import {User} from "../../service/User";
 
 @Component({
     selector: 'app-childs',
@@ -14,7 +15,7 @@ export class ChildsComponent implements OnInit {
 
     children!: Child[];
 
-    constructor(private userService:UserService,private http: HttpClient) { }
+    constructor(private userService:UserService,private http: HttpClient, private cd: ChangeDetectorRef) { }
 
     ngOnInit() {
         this.loadChildren();
@@ -23,17 +24,14 @@ export class ChildsComponent implements OnInit {
     loadChildren() {
         this.http.get<Child[]>(`${this.REST_API}/childs`).subscribe(children => {
             this.children = this.filterChildrenByUser(children);
+            this.cd.detectChanges(); // manuelle Aktualisierung des Templates
         });
     }
+
     filterChildrenByUser(children: Child[]) {
-        const loggedInUserId = this.userService.getLoggedInUser().id;
-        console.log(loggedInUserId);
-        return children.filter(child => {
-            console.log(child.userId);
-            console.log(child.id);
-            console.log(child.name);
-            return child.userId === loggedInUserId;
-        });
+        const loggedInUser = this.userService.getLoggedInUser();
+        console.log(loggedInUser.id);
+        return children.filter(child => child.user_id === loggedInUser.id);
     }
 
     editChild()
