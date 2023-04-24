@@ -1,18 +1,16 @@
-<nav class="navbar navbar-expand-sm bg-success navbar-dark">
-  &lt;!&ndash;  &ndash;&gt;
-  <ul class="navbar-nav">
-
-
-      <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active" routerLink="/login"
-          >Login</a
-          >
-      </li>
-  </ul>
+<nav class="navbar navbar-expand-sm" style="background-color: #87cefa;">
+    <ul class="navbar-nav row">
+        <li class="nav-item col">
+            <a class="nav-link" routerLinkActive="active" routerLink="/login">Login</a>
+        </li>
+        <li class="nav-item col">
+            <a class="nav-link" routerLinkActive="active" routerLink="/logout">Logout</a>
+        </li>
+    </ul>
 </nav>
 <div class="container">
-  <br>
-  <h2 style="text-align: center;">{{title}}</h2>
-  <hr>  
-  <router-outlet></router-outlet>
+    <br>
+    <h2 style="text-align: center;">{{title}}</h2>
+    <hr>
+    <router-outlet></router-outlet>
 </div>

@@ -14,7 +14,9 @@ export class LoginComponent {
 
     username!: string;
     password!: string;
-
+    ngOnInit() {
+       sessionStorage.removeItem('loggedInUser');
+    }
     constructor(private loginService: RegistrationService, private userService: UserService, private router: Router) {
     }
     login() {
@@ -26,6 +28,8 @@ export class LoginComponent {
                     if (response) {
                         const user = new User(this.username, this.password, response);
                         this.userService.setLoggedInUser(user);
+                        const userString = JSON.stringify(user);
+                        sessionStorage.setItem('loggedInUser', userString);
                         console.log(this.userService.getLoggedInUser());
                         this.router.navigate(['/childs']);
                     } else {

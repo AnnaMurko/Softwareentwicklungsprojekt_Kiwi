@@ -30,9 +30,12 @@ export class ChildsComponent implements OnInit {
 
     filterChildrenByUser(children: Child[]): Child[] {
         const filteredChildren: Child[] = [];
+        const loggedInUserString = sessionStorage.getItem('loggedInUser');
+        // @ts-ignore
+        const loggedInUser = JSON.parse(loggedInUserString) as User;
         for (let i = 0; i < children.length; i++) {
             let child: Child = children[i];
-            if (child.userId === this.userService.getLoggedInUser().id) {
+            if (child.userId === loggedInUser.id) {
                 filteredChildren.push(child);
             }
         }
