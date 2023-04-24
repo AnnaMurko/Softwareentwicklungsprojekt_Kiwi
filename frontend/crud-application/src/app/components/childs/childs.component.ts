@@ -26,7 +26,11 @@ export class ChildsComponent implements OnInit {
         });
     }
     filterChildrenByUser(children: Child[]) {
-        return children.filter(child => child.user === this.userService.getLoggedInUser());
+        return children.filter(child =>{ child.userId === this.userService.getLoggedInUser().id;
+            console.log(child.userId)  ;
+            console.log(child.id)  ;
+            console.log(child.name)  ;
+        });
     }
 
     editChild()

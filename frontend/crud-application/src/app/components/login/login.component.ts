@@ -15,21 +15,33 @@ export class LoginComponent {
     username!: string;
     password!: string;
 
-    constructor(private loginService: RegistrationService, private userService:UserService,private router:Router) {}
+    constructor(private loginService: RegistrationService, private userService: UserService, private router: Router) {
+    }
 
     login() {
         if (this.username && this.password) {
+
             this.loginService.login(this.username, this.password).subscribe(
-                () =>{ console.log('Anmeldung erfolgreich');
-                    this.userService.setLoggedInUser(new User(this.username,this.password));
-                  this.router.navigate(['/childs'])
-                    },
+                (response: any) => {
+                    console.log('Anmeldung erfolgreich');
+
+                    this.loginService.getUserID(this.username).subscribe(
+                        (userID: number) => {
+                            const user = new User(this.username, this.password, userID);
+                            this.userService.setLoggedInUser(user);
+                            this.router.navigate(['/childs']);
+                        },
+                        () => console.log('Fehler beim Abrufen der Benutzer-ID')
+                    );
+                },
                 () => console.log('Anmeldung fehlgeschlagen')
             );
         }
     }
-
 }
+
+
+
 
 
 
