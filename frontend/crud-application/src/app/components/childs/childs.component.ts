@@ -13,7 +13,7 @@ import {User} from "../../service/User";
 export class ChildsComponent implements OnInit {
     REST_API: string = 'http://localhost:8080/api/v1';
 
-    children!: Child[];
+    children?: Child[];
 
     constructor(private userService:UserService,private http: HttpClient, private cd: ChangeDetectorRef) { }
 
@@ -28,12 +28,16 @@ export class ChildsComponent implements OnInit {
         });
     }
 
-    filterChildrenByUser(children: Child[]) {
-        const loggedInUser = this.userService.getLoggedInUser();
-        console.log(loggedInUser.id);
-        return children.filter(child => child.user_id === loggedInUser.id);
+    filterChildrenByUser(children: Child[]): Child[] {
+        const filteredChildren: Child[] = [];
+        for (let i = 0; i < children.length; i++) {
+            let child: Child = children[i];
+            if (child.userId === this.userService.getLoggedInUser().id) {
+                filteredChildren.push(child);
+            }
+        }
+        return filteredChildren;
     }
-
     editChild()
     {
 

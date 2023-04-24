@@ -4,5 +4,5 @@ export interface Child {
   id: number;
   name: string;
   user: User;
-  user_id: number;
+  userId: number;
 }
