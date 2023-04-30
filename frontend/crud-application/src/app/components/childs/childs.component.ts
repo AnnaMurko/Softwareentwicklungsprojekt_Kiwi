@@ -4,6 +4,8 @@ import { HttpClient } from '@angular/common/http';
 import {Child} from "../../service/Child";
 import {UserService} from "../../service/user.service";
 import {User} from "../../service/User";
+import {Router} from "@angular/router";
+import {ChildService} from "../../service/child.service";
 
 @Component({
     selector: 'app-childs',
@@ -13,9 +15,9 @@ import {User} from "../../service/User";
 export class ChildsComponent implements OnInit {
     REST_API: string = 'http://localhost:8080/api/v1';
 
-    children?: Child[];
+    children: Child[] = [];
 
-    constructor(private userService:UserService,private http: HttpClient, private cd: ChangeDetectorRef) { }
+    constructor(private userService:UserService,private childService:ChildService,private http: HttpClient, private cd: ChangeDetectorRef,private router: Router) { }
 
     ngOnInit() {
         this.loadChildren();
@@ -41,9 +43,11 @@ export class ChildsComponent implements OnInit {
         }
         return filteredChildren;
     }
-    editChild()
-    {
-
+    editChild(index: number) {
+        const selectedChild = this.children[index];
+        this.childService.setEditChild(selectedChild);
+        sessionStorage.setItem('editChild', JSON.stringify(selectedChild));
+        this.router.navigate(['/bewertung']);
     }
 }
 

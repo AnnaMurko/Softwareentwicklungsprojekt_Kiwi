@@ -1,0 +1,122 @@
+// Farbdefinitionen
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+$success-color: #28a745;
+$info-color: #17a2b8;
+$warning-color: #ffc107;
+$danger-color: #dc3545;
+$light-color: #f8f9fa;
+$dark-color: #343a40;
+
+// Schriftdefinitionen
+$font-family-base: Arial, sans-serif;
+$font-size-base: 16px;
+
+// Definiere globale Styles
+body {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+}
+
+
+h2 {
+  text-align: center; /* Zentrieren des Textes */
+  color: $primary-color;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+form {
+  padding: 20px;
+  border: 1px solid $light-color;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+p {
+  margin: 0 0 10px;
+}
+
+input[type="range"] {
+  width: 100%;
+  margin-bottom: 10px;
+  -webkit-appearance: none;
+  height: 20px;
+  background: $light-color;
+  outline: none;
+  border-radius: 10px;
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: $primary-color;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+  &::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: $primary-color;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+}
+
+span {
+  font-weight: bold;
+}
+
+// Definiere Styles für die Bewertungsfelder
+#sozial_1_value,
+#sozial_2_value,
+#sozial_3_value,
+#verhalten_1_value,
+#verhalten_2_value,
+#verhalten_3_value,
+#verhalten_4_value,
+#verhalten_5_value,
+#verhalten_6_value,
+#verhalten_7_value,
+#verhalten_8_value,
+#verhalten_9_value,
+#verhalten_10_value,
+#verhalten_11_value,
+#verhalten_12_value,
+#verhalten_13_value,
+#verhalten_14_value,
+#verhalten_15_value,
+#verhalten_16_value,
+#verhalten_17_value,
+#verhalten_18_value,
+#verhalten_19_value,
+#verhalten_20_value {
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 14px;
+  color: $secondary-color;
+}
+
+// Definiere Styles für die Submit-Taste
+.button-container {
+  text-align: center; // Zentriert den Button horizontal
+}
+
+button {
+  // Optional: Button-Styling
+  display: inline-block; // Damit der Button das Text-Align-Eigenschaft des Containers respektiert
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+}
+
+
+

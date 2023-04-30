@@ -1,0 +1,56 @@
+<h2>Bewertung des Kindes: {{ child?.name }}</h2>
+<form>
+  <p>1. Kann das Kind gut mit anderen Kindern teilen? <span id="sozial_1_value">1 (schlecht)</span></p>
+  <input type="range" name="sozial_1" id="sozial_1" min="1" max="5" oninput="document.getElementById('sozial_1_value').innerHTML = this.value + (this.value == 5 ? ' (sehr gut)' : this.value == 4 ? ' (gut)' : this.value == 3 ? ' (befriedigend)' : this.value == 2 ? ' (ausreichend)' : ' (schlecht)');">
+  <p>2. Wie gut kann das Kind Konflikte mit anderen Kindern lösen? <span id="sozial_2_value">1 (schlecht)</span></p>
+  <input type="range" name="sozial_2" id="sozial_2" min="1" max="5" oninput="document.getElementById('sozial_2_value').innerHTML = this.value + (this.value == 5 ? ' (sehr gut)' : this.value == 4 ? ' (gut)' : this.value == 3 ? ' (befriedigend)' : this.value == 2 ? ' (ausreichend)' : ' (schlecht)');">
+  <p>3. Wie gut kann das Kind sich in eine Gruppe integrieren? <span id="sozial_3_value">1 (schlecht)</span></p>
+  <input type="range" name="sozial_3" id="sozial_3" min="1" max="5" oninput="document.getElementById('sozial_3_value').innerHTML = this.value + (this.value == 5 ? ' (sehr gut)' : this.value == 4 ? ' (gut)' : this.value == 3 ? ' (befriedigend)' : this.value == 2 ? ' (ausreichend)' : ' (schlecht)');">
+  <p>4. Wie gut kann das Kind Regeln befolgen? <span id="verhalten_1_value">1 (schlecht)</span></p>
+  <input type="range" name="verhalten_1" id="verhalten_1" min="1" max="5" oninput="document.getElementById('verhalten_1_value').innerHTML = this.value + (this.value == 5 ? ' (sehr gut)' : this.value == 4 ? ' (gut)' : this.value == 3 ? ' (befriedigend)' : this.value == 2 ? ' (ausreichend)' : ' (schlecht)');">
+  <p>5. Wie oft muss das Kind ermahnt werden? <span id="verhalten_2_value">1 (sehr oft)</span></p>
+  <input type="range" name="verhalten_2" id="verhalten_2" min="1" max="5" oninput="document.getElementById('verhalten_2_value').innerHTML = this.value + (this.value == 5 ? ' (sehr selten)' : this.value == 4 ? ' (selten)' : this.value == 3 ? ' (manchmal)' : this.value == 2 ? ' (oft)' : ' (sehr oft)');">
+  <p>6. Wie gut kann das Kind Anweisungen befolgen? <span id="verhalten_3_value">1 (schlecht)</span></p>
+  <input type="range" name="verhalten_3" id="verhalten_3" min="1" max="5" oninput="document.getElementById('verhalten_3_value').innerHTML = this.value + (this.value == 5 ? ' (sehr gut)' : this.value == 4 ? ' (gut)' : this.value == 3 ? ' (befriedigend)' : this.value == 2 ? ' (ausreichend)' : ' (schlecht)');">
+
+  <p>7. Wie gut kann das Kind Aufgaben erledigen? <span id="verhalten_4_value">1 (schlecht)</span></p>
+  <input type="range" name="verhalten_4" id="verhalten_4" min="1" max="5" oninput="document.getElementById('verhalten_4_value').innerHTML = this.value + (this.value == 5 ? ' (sehr gut)' : this.value == 4 ? ' (gut)' : this.value == 3 ? ' (befriedigend)' : this.value == 2 ? ' (ausreichend)' : ' (schlecht)');">
+  <p>8. Wie gut kann das Kind selbstständig arbeiten? <span id="verhalten_5_value">1 (schlecht)</span></p>
+  <input type="range" name="verhalten_5" id="verhalten_5" min="1" max="5" oninput="document.getElementById('verhalten_5_value').innerHTML = this.value + (this.value == 5 ? ' (sehr gut)' : this.value == 4 ? ' (gut)' : this.value == 3 ? ' (befriedigend)' : this.value == 2 ? ' (ausreichend)' : ' (schlecht)');">
+  <p>9. Wie gut kann das Kind kreativ sein? <span id="verhalten_6_value">1 (schlecht)</span></p>
+  <input type="range" name="verhalten_6" id="verhalten_6" min="1" max="5" oninput="document.getElementById('verhalten_6_value').innerHTML = this.value + (this.value == 5 ? ' (sehr gut)' : this.value == 4 ? ' (gut)' : this.value == 3 ? ' (befriedigend)' : this.value == 2 ? ' (ausreichend)' : ' (schlecht)');">
+  <p>10. Wie gut kann das Kind Probleme lösen? <span id="verhalten_7_value">1 (schlecht)</span></p>
+  <input type="range" name="verhalten_7" id="verhalten_7" min="1" max="5" oninput="document.getElementById('verhalten_7_value').innerHTML = this.value + (this.value == 5 ? ' (sehr gut)' : this.value == 4 ? ' (gut)' : this.value == 3 ? ' (befriedigend)' : this.value == 2 ? ' (ausreichend)' : ' (schlecht)');">
+  <p>11. Wie gut kann das Kind Entscheidungen treffen? <span id="verhalten_8_value">1 (schlecht)</span></p>
+  <input type="range" name="verhalten_8" id="verhalten_8" min="1" max="5" oninput="document.getElementById('verhalten_8_value').innerHTML = this.value + (this.value == 5 ? ' (sehr gut)' : this.value == 4 ? ' (gut)' : this.value == 3 ? ' (befriedigend)' : this.value == 2 ? ' (ausreichend)' : ' (schlecht)');">
+
+  <p>12. Wie gut kann das Kind konzentriert arbeiten? <span id="verhalten_9_value">1 (schlecht)</span></p>
+  <input type="range" name="verhalten_9" id="verhalten_9" min="1" max="5" oninput="document.getElementById('verhalten_9_value').innerHTML = this.value + (this.value == 5 ? ' (sehr gut)' : this.value == 4 ? ' (gut)' : this.value == 3 ? ' (befriedigend)' : this.value == 2 ? ' (ausreichend)' : ' (schlecht)');">
+  <p>13. Wie gut kann das Kind motiviert werden? <span id="verhalten_10_value">1 (schlecht)</span></p>
+  <input type="range" name="verhalten_10" id="verhalten_10" min="1" max="5" oninput="document.getElementById('verhalten_10_value').innerHTML = this.value + (this.value == 5 ? ' (sehr gut)' : this.value == 4 ? ' (gut)' : this.value == 3 ? ' (befriedigend)' : this.value == 2 ? ' (ausreichend)' : ' (schlecht)');">
+  <p>14. Wie gut kann das Kind Feedback annehmen? <span id="verhalten_11_value">1 (schlecht)</span></p>
+  <input type="range" name="verhalten_11" id="verhalten_11" min="1" max="5" oninput="document.getElementById('verhalten_11_value').innerHTML = this.value + (this.value == 5 ? ' (sehr gut)' : this.value == 4 ? ' (gut)' : this.value == 3 ? ' (befriedigend)' : this.value == 2 ? ' (ausreichend)' : ' (schlecht)');">
+  <p>15. Wie gut kann das Kind Feedback geben? <span id="verhalten_12_value">1 (schlecht)</span></p>
+  <input type="range" name="verhalten_12" id="verhalten_12" min="1" max="5" oninput="document.getElementById('verhalten_12_value').innerHTML = this.value + (this.value == 5 ? ' (sehr gut)' : this.value == 4 ? ' (gut)' : this.value == 3 ? ' (befriedigend)' : this.value == 2 ? ' (ausreichend)' : ' (schlecht)');">
+  <p>16. Wie gut kann das Kind seine Gefühle ausdrücken? <span id="verhalten_13_value">1 (schlecht)</span></p>
+  <input type="range" name="verhalten_13" id="verhalten_13" min="1" max="5" oninput="document.getElementById('verhalten_13_value').innerHTML = this.value + (this.value == 5 ? ' (sehr gut)' : this.value == 4 ? ' (gut)' : this.value == 3 ? ' (befriedigend)' : this.value == 2 ? ' (ausreichend)' : ' (schlecht)');">
+
+  <p>17. Wie gut kann das Kind mit Enttäuschungen umgehen? <span id="verhalten_14_value">1 (schlecht)</span></p>
+  <input type="range" name="verhalten_14" id="verhalten_14" min="1" max="5" oninput="document.getElementById('verhalten_14_value').innerHTML = this.value + (this.value == 5 ? ' (sehr gut)' : this.value == 4 ? ' (gut)' : this.value == 3 ? ' (befriedigend)' : this.value == 2 ? ' (ausreichend)' : ' (schlecht)');">
+  <p>18. Wie gut kann das Kind Verantwortung übernehmen? <span id="verhalten_15_value">1 (schlecht)</span></p>
+  <input type="range" name="verhalten_15" id="verhalten_15" min="1" max="5" oninput="document.getElementById('verhalten_15_value').innerHTML = this.value + (this.value == 5 ? ' (sehr gut)' : this.value == 4 ? ' (gut)' : this.value == 3 ? ' (befriedigend)' : this.value == 2 ? ' (ausreichend)' : ' (schlecht)');">
+  <p>19. Wie gut kann das Kind für sich selbst sorgen? <span id="verhalten_16_value">1 (schlecht)</span></p>
+  <input type="range" name="verhalten_16" id="verhalten_16" min="1" max="5" oninput="document.getElementById('verhalten_16_value').innerHTML = this.value + (this.value == 5 ? ' (sehr gut)' : this.value == 4 ? ' (gut)' : this.value == 3 ? ' (befriedigend)' : this.value == 2 ? ' (ausreichend)' : ' (schlecht)');">
+  <p>20. Wie gut kann das Kind mit anderen Kindern kooperieren? <span id="verhalten_17_value">1 (schlecht)</span></p>
+  <input type="range" name="verhalten_17" id="verhalten_17" min="1" max="5" oninput="document.getElementById('verhalten_17_value').innerHTML = this.value + (this.value == 5 ? ' (sehr gut)' : this.value == 4 ? ' (gut)' : this.value == 3 ? ' (befriedigend)' : this.value == 2 ? ' (ausreichend)' : ' (schlecht)');">
+  <p>21. Wie gut kann das Kind Rücksicht auf andere nehmen? <span id="verhalten_18_value">1 (schlecht)</span></p>
+  <input type="range" name="verhalten_18" id="verhalten_18" min="1" max="5" oninput="document.getElementById('verhalten_18_value').innerHTML = this.value + (this.value == 5 ? ' (sehr gut)' : this.value == 4 ? ' (gut)' : this.value == 3 ? ' (befriedigend)' : this.value == 2 ? ' (ausreichend)' : ' (schlecht)');">
+  <p>22. Wie gut kann das Kind für andere dasein? <span id="verhalten_19_value">1 (schlecht)</span></p>
+  <input type="range" name="verhalten_19" id="verhalten_19" min="1" max="5" oninput="document.getElementById('verhalten_19_value').innerHTML = this.value + (this.value == 5 ? ' (sehr gut)' : this.value == 4 ? ' (gut)' : this.value == 3 ? ' (befriedigend)' : this.value == 2 ? ' (ausreichend)' : ' (schlecht)');">
+
+  <p>23. Wie gut kann das Kind an gemeinsamen Aktivitäten teilnehmen? <span id="verhalten_20_value">1 (schlecht)</span></p>
+  <input type="range" name="verhalten_20" id="verhalten_20" min="1" max="5" oninput="document.getElementById('verhalten_20_value').innerHTML = this.value + (this.value == 5 ? ' (sehr gut)' : this.value == 4 ? ' (gut)' : this.value == 3 ? ' (befriedigend)' : this.value == 2 ? ' (ausreichend)' : ' (schlecht)');">
+  <div class="button-container">
+
+  <button type="submit" class="btn btn-primary">Fertig</button>  </div>
+</form>

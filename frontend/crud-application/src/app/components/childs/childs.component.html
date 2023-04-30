@@ -9,10 +9,10 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let child of children">
+    <tr *ngFor="let child of children; let i=index">
       <td class="id-column">{{child.id}}</td>
       <td class="name-column">{{child.name}}</td>
-      <td><button class="edit-button" (click)="editChild()">Bearbeiten</button></td>
+      <td><button class="edit-button" (click)="editChild(i)">Bewerten</button></td>
     </tr>
     </tbody>
   </table>
