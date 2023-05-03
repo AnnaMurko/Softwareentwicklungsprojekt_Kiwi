@@ -1,16 +1,25 @@
 <nav class="navbar navbar-expand-sm" style="background-color: #87cefa;">
     <ul class="navbar-nav row">
         <li class="nav-item col">
-            <a class="nav-link" routerLinkActive="active" routerLink="/login">Login</a>
+            <a class="nav-link font-weight-bold" routerLinkActive="active" routerLink="/login">Login</a>
         </li>
         <li class="nav-item col">
-            <a class="nav-link" routerLinkActive="active" routerLink="/login">Logout</a>
+            <a class="nav-link font-weight-bold" routerLinkActive="active" routerLink="/login">Logout</a>
+        </li>
+        <li class="nav-item col-auto" *ngIf="userService.getLoggedInUser()?.admin">
+            <a class="nav-link font-weight-bold" routerLinkActive="active" routerLink="/editChild">Kinder bearbeiten</a>
+        </li>
+        <li class="nav-item col-auto" *ngIf="userService.getLoggedInUser()?.admin">
+            <a class="nav-link font-weight-bold" routerLinkActive="active" routerLink="/editEducator">Betreuer bearbeiten</a>
         </li>
     </ul>
 </nav>
+
+
 <div class="container">
     <br>
     <h2 style="text-align: center;">{{title}}</h2>
     <hr>
     <router-outlet></router-outlet>
 </div>
+

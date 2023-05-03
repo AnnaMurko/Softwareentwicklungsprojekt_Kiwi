@@ -4,6 +4,8 @@ import com.knf.dev.demo.crudapplication.entity.Child;
 import com.knf.dev.demo.crudapplication.repository.ChildsRepository;
 import com.knf.dev.demo.crudapplication.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,6 +26,13 @@ private UserRepository userRepository;
             child.setUser(userRepository.findById(child.getUserId()).orElse(null));
         }
         return children;
+    }
+
+
+    // create user rest API
+    @PostMapping("/childs")
+    public Child createChild(@RequestBody Child child) {
+        return childsRepository.save(child);
     }
 
 }

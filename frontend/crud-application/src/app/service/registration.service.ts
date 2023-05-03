@@ -21,6 +21,10 @@ export class RegistrationService {
         const headers = new HttpHeaders().set('Access-Control-Allow-Origin', '*');
         return this.httpClient.get<number>(`${this.REST_API}/users/${username}/id`, { headers: headers });
     }
+    public getUserAdminBoolean(username: string): Observable<boolean> {
+        const headers = new HttpHeaders().set('Access-Control-Allow-Origin', '*');
+        return this.httpClient.get<boolean>(`${this.REST_API}/users/${username}/admin`, { headers: headers });
+    }
 }
 
 

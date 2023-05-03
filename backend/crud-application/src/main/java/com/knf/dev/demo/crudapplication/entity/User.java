@@ -20,8 +20,18 @@ public class User {
 
     private String password;
 
+    @Column(name = "admin")
+    private boolean admin;
+
     public Long getId() {
         return id;
+    }
+    public boolean isAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
     }
 
     public void setId(Long id) {

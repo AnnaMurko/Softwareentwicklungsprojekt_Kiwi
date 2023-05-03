@@ -17,7 +17,7 @@ export class BewertungComponent implements OnInit {
     child!: Child;
     constructor(private userService:UserService,private http: HttpClient, private cd: ChangeDetectorRef, private router: Router) { }
 
-    ngOnInit() {        const loggedInUserString = sessionStorage.getItem('editChild');
+    ngOnInit() {        const loggedInUserString = sessionStorage.getItem('ChildToBeRated');
         // @ts-ignore
         this.child = JSON.parse(loggedInUserString) as Child;
     }

@@ -1,0 +1,27 @@
+<h1 class="title">Kinder</h1>
+<div class="container d-flex justify-content-end mt-4 mb-4">
+    <button class="btn btn-primary" (click)="addChild()">Hinzufügen</button>
+</div>
+<div class="child-list">
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let child of children; let i=index">
+            <td class="id-column">{{child.id}}</td>
+            <td class="name-column">{{child.name}}</td>
+            <td>
+                <div class="d-flex justify-content-between align-items-center">
+                    <button class="btn btn-primary edit-button" (click)="editChild(i)">Bearbeiten</button>
+                    <button class="btn btn-danger edit-button" (click)="deleteChild(i)">Entfernen</button>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

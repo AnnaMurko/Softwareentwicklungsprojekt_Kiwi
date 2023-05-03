@@ -1,0 +1,33 @@
+#childForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  font-family: sans-serif;
+  label {
+    font-weight: bold;
+  }
+  input[type="text"] {
+    padding: 0.5rem;
+    border: 2px solid gray;
+    border-radius: 0.25rem;
+    transition: border-color 0.2s ease-in-out;
+    &:focus {
+      outline: none;
+      border-color: blue;
+    }
+  }
+  button[type="submit"] {
+    padding: 0.5rem;
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    &:hover {
+      background-color: darkblue;
+    }
+  }
+}

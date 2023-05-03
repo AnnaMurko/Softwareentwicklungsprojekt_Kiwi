@@ -17,22 +17,29 @@ export class LoginComponent {
     ngOnInit() {
        sessionStorage.removeItem('loggedInUser');
         sessionStorage.removeItem('array');
+
     }
     constructor(private loginService: RegistrationService, private userService: UserService, private router: Router) {
     }
     login() {
         if (this.username && this.password) {
-
             this.loginService.getUserID(this.username).subscribe(
-                (response: any) => {
-                    console.log('API-Antwort:', response);
-                    if (response) {
-                        const user = new User(this.username, this.password, response);
-                        this.userService.setLoggedInUser(user);
-                        const userString = JSON.stringify(user);
-                        sessionStorage.setItem('loggedInUser', userString);
-                        console.log(this.userService.getLoggedInUser());
-                        this.router.navigate(['/childs']);
+                (userId: number) => {
+                    console.log('UserID:', userId);
+                    if (userId) {
+                        this.loginService.getUserAdminBoolean(this.username).subscribe(
+                            // @ts-ignore
+                            (admin: boolean) => {
+                                console.log('admin:', admin);
+                                const user = new User(this.username, this.password, userId, admin);
+                                this.userService.setLoggedInUser(user);
+                                const userString = JSON.stringify(user);
+                                sessionStorage.setItem('loggedInUser', userString);
+                                console.log(this.userService.getLoggedInUser());
+                                this.router.navigate(['/childs']);
+                            },
+                            (error) => console.log('Fehler beim Abrufen von isAdmin', error)
+                        );
                     } else {
                         console.log('Ungültige Antwort: userID nicht gefunden');
                     }
@@ -40,6 +47,7 @@ export class LoginComponent {
                 (error) => console.log('Fehler beim Abrufen der Benutzer-ID', error)
             );
         }
-    }}
+    }
+}
 
 

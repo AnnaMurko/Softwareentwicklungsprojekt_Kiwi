@@ -8,11 +8,11 @@ import {Router} from "@angular/router";
 import {ChildService} from "../../service/child.service";
 
 @Component({
-    selector: 'app-childs',
-    templateUrl: './childs.component.html',
-    styleUrls: ['./childs.component.scss']
+    selector: 'app-editChild',
+    templateUrl: './editChild.component.html',
+    styleUrls: ['./editChild.component.scss']
 })
-export class ChildsComponent implements OnInit {
+export class EditChildComponent implements OnInit {
     REST_API: string = 'http://localhost:8080/api/v1';
 
     children: Child[] = [];
@@ -25,29 +25,41 @@ export class ChildsComponent implements OnInit {
 
     loadChildren() {
         this.http.get<Child[]>(`${this.REST_API}/childs`).subscribe(children => {
-            this.children = this.filterChildrenByUser(children);
+            this.children = this.getAllChildren(children);
             this.cd.detectChanges(); // manuelle Aktualisierung des Templates
         });
     }
 
-    filterChildrenByUser(children: Child[]): Child[] {
+    getAllChildren(children: Child[]): Child[] {
         const filteredChildren: Child[] = [];
         const loggedInUserString = sessionStorage.getItem('loggedInUser');
         // @ts-ignore
         const loggedInUser = JSON.parse(loggedInUserString) as User;
         for (let i = 0; i < children.length; i++) {
             let child: Child = children[i];
-            if (child.userId === loggedInUser.id) {
+
                 filteredChildren.push(child);
-            }
+
         }
         return filteredChildren;
     }
     editChild(index: number) {
         const selectedChild = this.children[index];
         this.childService.setEditChild(selectedChild);
-        sessionStorage.setItem('ChildToBeRated', JSON.stringify(selectedChild));
-        this.router.navigate(['/bewertung']);
+        sessionStorage.setItem('editChild', JSON.stringify(selectedChild));
+        //this.router.navigate(['/bewertung']);
+    }
+
+    addChild()
+    {
+        this.router.navigate(['/addChild']);
+    }
+    deleteChild(index: number)
+    {
+        const selectedChild = this.children[index];
+        this.childService.setEditChild(selectedChild);
+        sessionStorage.setItem('editChild', JSON.stringify(selectedChild));
+        //this.router.navigate(['/bewertung']);
     }
 }
 

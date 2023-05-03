@@ -1,5 +1,5 @@
 
-import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {AfterViewInit, ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Child} from "../../service/Child";
 import {UserService} from "../../service/user.service";
@@ -21,7 +21,7 @@ import html2canvas from 'html2canvas';
     templateUrl: './ergebnis.component.html',
     styleUrls: ['./ergebnis.component.scss']
 })
-export class ErgebnisComponent implements OnInit {
+export class ErgebnisComponent implements OnInit, AfterViewInit {
     REST_API: string = 'http://localhost:8080/api/v1';
 
     child!: Child;
@@ -29,7 +29,7 @@ export class ErgebnisComponent implements OnInit {
 
         ngOnInit() {
             //erstmal child
-            const loggedInUserString = sessionStorage.getItem('editChild');
+            const loggedInUserString = sessionStorage.getItem('ChildToBeRated');
             // @ts-ignore
             this.child = JSON.parse(loggedInUserString) as Child;
             //bewertung
@@ -112,5 +112,9 @@ console.log(arrayFromSessionStorage);
         console.log(elementToPrint);
         // @ts-ignore
         this.printPDF();
+    }
+
+    ngAfterViewInit(): void {
+        window.scrollTo(0, 0);
     }
     }
