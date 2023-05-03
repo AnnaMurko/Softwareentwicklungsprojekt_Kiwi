@@ -5,8 +5,16 @@ import {Child} from "../../service/Child";
 import {UserService} from "../../service/user.service";
 import {User} from "../../service/User";
 import {Router} from "@angular/router";
-import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
+// @ts-ignore
+import pdfMake from 'pdfmake/build/pdfmake';
+// @ts-ignore
+import pdfFonts from 'pdfmake/build/vfs_fonts';
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
+
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
+import html2canvas from 'html2canvas';
+
 
 @Component({
     selector: 'app-snake',
@@ -70,35 +78,39 @@ console.log(arrayFromSessionStorage);
                 }
             }
         }
-    downloadPDF() {
-        const data = document.getElementById('anna');
-        const options = { scale: 1, backgroundColor: '#FFFFFF', scrollY: 0 };
+
+    printPDF() {
+        const printWindow = window.open('', '_blank');
         // @ts-ignore
-        html2canvas(data, options).then(canvas => {
-            const imgWidth = 210;
-            const pageHeight = 297;
-            const imgHeight = canvas.height * imgWidth / canvas.width;
-            const contentDataURL = canvas.toDataURL('image/png');
-            const pdf = new jsPDF('p', 'mm', 'a4');
-            let position = 0;
-            let heightLeft = imgHeight;
-            pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
-            heightLeft -= pageHeight;
+        const content = document.getElementById('anna').outerHTML;
 
-            while (heightLeft >= 0) {
-                position = heightLeft - imgHeight;
-                pdf.addPage();
-                pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
-                heightLeft -= pageHeight;
-            }
+        const head = document.head.cloneNode(true);
 
-            pdf.save('file.pdf');
-        });
+        // @ts-ignore
+        printWindow.document.write('<!DOCTYPE html><html>');
+        // @ts-ignore
+        printWindow.document.write('<head>');
+        // @ts-ignore
+        printWindow.document.write(head.innerHTML);
+        // @ts-ignore
+        printWindow.document.write('<style>body { margin: 20mm 10mm 10mm 10mm; }</style>');
+        // @ts-ignore
+        printWindow.document.write('</head><body>');
+        // @ts-ignore
+        printWindow.document.write(content);
+        // @ts-ignore
+        printWindow.document.write('</body></html>');
+        // @ts-ignore
+        printWindow.document.close();
+        // @ts-ignore
+        printWindow.print();
     }
-
 
     fertig()
     {
-    this.downloadPDF();
+        const elementToPrint = document.getElementById('anna');
+        console.log(elementToPrint);
+        // @ts-ignore
+        this.printPDF();
     }
     }
