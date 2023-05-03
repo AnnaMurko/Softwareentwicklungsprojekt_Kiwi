@@ -9,13 +9,15 @@ import { AppRoutingModule } from './app-routing.module';
 import {LoginComponent} from "./components/login/login.component";
 import {ChildsComponent} from "./components/childs/childs.component";
 import {BewertungComponent} from "./components/bewertung/bewertung.component";
+import {ErgebnisComponent} from "./components/ergebnis/ergebnis.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
       ChildsComponent,
-      BewertungComponent
+      BewertungComponent,
+      ErgebnisComponent,
   ],
   imports: [
     BrowserModule,

@@ -16,6 +16,7 @@ export class LoginComponent {
     password!: string;
     ngOnInit() {
        sessionStorage.removeItem('loggedInUser');
+        sessionStorage.removeItem('array');
     }
     constructor(private loginService: RegistrationService, private userService: UserService, private router: Router) {
     }

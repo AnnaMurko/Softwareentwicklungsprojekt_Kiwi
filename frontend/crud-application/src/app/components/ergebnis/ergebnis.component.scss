@@ -1,0 +1,71 @@
+// Farben definieren
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+$light-color: #f1f1f1; /* Ändern Sie den Wert hier, um die Hintergrundfarbe anzupassen */
+
+h2 {
+  text-align: center;
+}
+
+.antwort-1 {
+  color: green;
+}
+
+.antwort-2 {
+  color: blue;
+}
+
+.antwort-3 {
+  color: yellow;
+}
+
+.antwort-0 {
+  color: orange;
+}
+
+.antwort-5 {
+  color: red;
+}
+
+// Tabellenstil definieren
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+
+  // Tabellenkopf definieren
+  thead {
+    background-color: $primary-color;
+    color: #fff;
+    text-align: left;
+    font-weight: bold;
+
+    tr {
+      th {
+        padding: 1rem;
+      }
+    }
+  }
+
+  // Tabellenkörper definieren
+  tbody {
+    background-color: $light-color;
+
+    tr {
+      border-bottom: 1px solid $secondary-color;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      td {
+        padding: 1rem;
+
+        &:first-child {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
