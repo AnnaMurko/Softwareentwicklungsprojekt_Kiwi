@@ -2,6 +2,7 @@ import {Injectable} from "@angular/core";
 import {Observable} from "rxjs";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {CrossOrigin} from "@angular-devkit/build-angular";
+import {User} from "./User";
 
 @Injectable({
   providedIn: 'root',
@@ -24,6 +25,12 @@ export class RegistrationService {
     public getUserAdminBoolean(username: string): Observable<boolean> {
         const headers = new HttpHeaders().set('Access-Control-Allow-Origin', '*');
         return this.httpClient.get<boolean>(`${this.REST_API}/users/${username}/admin`, { headers: headers });
+    }
+
+
+    public getUsers(): Observable<User[]>{
+        const headers = new HttpHeaders().set('Access-Control-Allow-Origin', '*');
+        return this.httpClient.get<User[]>(`${this.REST_API}/users`, { headers: headers });
     }
 }
 

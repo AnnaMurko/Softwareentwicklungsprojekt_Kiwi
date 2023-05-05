@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
-import {User} from "./User";
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { User } from './User';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService {
-
+  private REST_API = 'http://localhost:8080/api/v1';
   private loggedInUser!: User;
 
-  constructor() { }
+  constructor(private http: HttpClient) {}
 
   setLoggedInUser(user: User) {
     this.loggedInUser = user;
@@ -17,5 +19,6 @@ export class UserService {
   getLoggedInUser(): User {
     return this.loggedInUser;
   }
+
 
 }

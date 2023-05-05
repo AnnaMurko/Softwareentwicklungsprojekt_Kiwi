@@ -1,46 +1,48 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { NgZone } from '@angular/core';
-import { CrudService } from '../../service/crud.service';
-import { Child } from '../../service/Child';
+// In addChild.component.ts
+import { Component } from '@angular/core';
+import { Child } from "../../service/Child";
+import { Router } from "@angular/router";
+import { CrudService } from "../../service/crud.service";
+import { UserService } from "../../service/user.service";
+import { User } from "../../service/User";
+import {RegistrationService} from "../../service/registration.service";
 
 @Component({
     selector: 'app-addChild',
     templateUrl: './addChild.component.html',
     styleUrls: ['./addChild.component.scss']
 })
-export class AddChildComponent implements OnInit {
-    childForm: FormGroup;
+export class AddChildComponent {
+    child = new Child(0, '', 1);
+    users: User[] = [];
 
     constructor(
-        private formBuilder: FormBuilder,
         private router: Router,
-        private ngZone: NgZone,
-        private crudService: CrudService
+        private crudService: CrudService,
+        private userService: UserService,
+        private registrationService:RegistrationService
     ) {
-        this.childForm = this.formBuilder.group({
-            name: ['', Validators.required],
-            user_id: ['', Validators.required]
-        });
-
-
+        this.loadUsers();
     }
 
-    ngOnInit() {}
+    loadUsers() {
+            this.registrationService.getUsers().subscribe((res: any) => {
+                console.log(res);
+                this.users = res;
+            });
 
-    onSubmit(): any {
-        console.log(this.childForm.value); // Hier wird das Formular-Objekt ausgegeben
-        this.crudService.addChild(this.childForm.value).subscribe(
+        console.log(this.users);
+    }
 
+
+    addChild() {
+        this.crudService.addChild(this.child).subscribe(
             () => {
-                console.log('Child added successfully!');
-                //this.ngZone.run(() => this.router.navigateByUrl('/users-list'));
+               console.log("erfolg");
             },
-            (err) => {
-                console.log(err);
+            (error) => {
+                console.error('Error creating child:', error);
             }
         );
     }
-
 }
