@@ -31,8 +31,8 @@ export class CrudService {
   }
 
   // Get all objects
-  GetChilds() {
-    return this.httpClient.get(`${this.REST_API}/childs`);
+  getChilds():Observable<Child[]> {
+    return this.httpClient.get<Child[]>(`${this.REST_API}/childs`);
   }
 
   // Get single object

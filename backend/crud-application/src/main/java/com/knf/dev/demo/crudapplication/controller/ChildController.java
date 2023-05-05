@@ -28,9 +28,13 @@ public class ChildController {
 
     @PostMapping("/childs")
     public Child createChild(@RequestBody Child child) {
+        System.out.println(child);
+        Long userId = child.getUserId();
         // Setzen Sie das Kind-Objekt im User-Objekt auf das User-Objekt, das aus der Datenbank geladen wurde
-        child.setUser(userRepository.findById(child.getUser().getId()).orElse(null));
+        child.setUser(userRepository.findById(userId).orElse(null));
+        // Setzen Sie die user_id für das Kind
         // Speichern Sie das Kind-Objekt in der Datenbank
         return childsRepository.save(child);
     }
+
 }

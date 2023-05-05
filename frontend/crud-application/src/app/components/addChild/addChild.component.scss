@@ -4,30 +4,39 @@
   align-items: center;
   gap: 1rem;
   font-family: sans-serif;
-  label {
-    font-weight: bold;
-  }
-  input[type="text"] {
-    padding: 0.5rem;
-    border: 2px solid gray;
-    border-radius: 0.25rem;
-    transition: border-color 0.2s ease-in-out;
-    &:focus {
-      outline: none;
-      border-color: blue;
-    }
-  }
-  button[type="submit"] {
-    padding: 0.5rem;
-    background-color: blue;
-    color: white;
-    border: none;
-    border-radius: 0.25rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.2s ease-in-out;
-    &:hover {
-      background-color: darkblue;
-    }
-  }
+  margin-top: 5rem;
+  text-align: center;
+}
+
+#childForm label {
+  font-weight: bold;
+}
+
+#childForm input[type="text"] {
+  padding: 0.5rem;
+  border: 2px solid gray;
+  border-radius: 0.25rem;
+  transition: border-color 0.2s ease-in-out;
+}
+
+#childForm input[type="text"]:focus {
+  outline: none;
+  border-color: blue;
+}
+
+#childForm button[type="submit"] {
+  padding: 0.5rem;
+  background-color: blue;
+  color: white;
+  border: none;
+  border-radius: 0.25rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  margin-top: 1rem;
+}
+
+#childForm button[type="submit"]:hover {
+  background-color: darkblue;
+  margin-top: 5rem;
 }

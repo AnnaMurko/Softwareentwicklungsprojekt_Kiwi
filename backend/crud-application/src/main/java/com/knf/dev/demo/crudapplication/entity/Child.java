@@ -2,6 +2,7 @@ package com.knf.dev.demo.crudapplication.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
+
 @Entity
 @Table(name = "childs")
 @JsonIgnoreProperties("user")
@@ -13,8 +14,11 @@ public class Child {
 
     private String name;
 
+    @Column(name = "user_id")
+    private Long userId;
+
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", referencedColumnName = "id", insertable = false, updatable = false)
     private User user;
 
     // getter and setter methods
@@ -35,16 +39,20 @@ public class Child {
         this.name = name;
     }
 
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
     public User getUser() {
         return user;
     }
 
     public void setUser(User user) {
         this.user = user;
-    }
-
-    public Long getUserId() {
-        return user.getId();
     }
 
     // toString method
@@ -54,7 +62,8 @@ public class Child {
         return "Child{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", user=" + user.getUsername() + " (ID: " + user.getId() + ")" +
+                ", userId=" + userId +
+                ", user=" + user +
                 '}';
     }
 }
