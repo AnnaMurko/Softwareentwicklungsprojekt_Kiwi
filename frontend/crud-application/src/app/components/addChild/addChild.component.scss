@@ -1,42 +1,64 @@
-#childForm {
+.container {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start; /* die Ausrichtung nach oben setzen */
   align-items: center;
-  gap: 1rem;
-  font-family: sans-serif;
-  margin-top: 5rem;
-  text-align: center;
-}
+  min-height: 100vh; /* min-height anstatt height, um sicherzustellen, dass die Höhe mindestens 100vh beträgt */
+  padding-top: 2rem; /* ein bisschen Abstand von oben hinzufügen */
 
-#childForm label {
-  font-weight: bold;
-}
+  h1 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+  }
 
-#childForm input[type="text"] {
-  padding: 0.5rem;
-  border: 2px solid gray;
-  border-radius: 0.25rem;
-  transition: border-color 0.2s ease-in-out;
-}
+  form {
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 
-#childForm input[type="text"]:focus {
-  outline: none;
-  border-color: blue;
-}
+    .form-group {
+      margin-bottom: 1rem;
 
-#childForm button[type="submit"] {
-  padding: 0.5rem;
-  background-color: blue;
-  color: white;
-  border: none;
-  border-radius: 0.25rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
-  margin-top: 1rem;
-}
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+      }
 
-#childForm button[type="submit"]:hover {
-  background-color: darkblue;
-  margin-top: 5rem;
+      input,
+      select {
+        width: 100%;
+        padding: 0.5rem;
+        font-size: 1rem;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+
+      .alert {
+        margin-top: 1rem;
+        color: #721c24;
+        background-color: #f8d7da;
+        border-color: #f5c6cb;
+        padding: .75rem 1.25rem;
+        border-radius: .25rem;
+      }
+    }
+
+    .btn-primary {
+      display: block;
+      margin: 0 auto;
+      margin-top: 2rem;
+    }
+
+    .alert-success {
+      margin-top: 1rem;
+      color: #155724;
+      background-color: #d4edda;
+      border-color: #c3e6cb;
+      padding: .75rem 1.25rem;
+      border-radius: .25rem;
+    }
+  }
 }

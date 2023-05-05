@@ -16,6 +16,7 @@ export class AddChildComponent {
     users: User[] = [];
     selectedUser: User | undefined;
     error: string = '';
+    success: string = '';
 
     constructor(
         private router: Router,
@@ -46,13 +47,16 @@ export class AddChildComponent {
             // check if the new child name already exists in the list of children
             const childExists = res.some((child: { name: string; }) => child.name === this.child.name);
             if (childExists) {
-                this.error = "Error: Kind mit diesem Namen existiert bereits";
+                this.error = "Kind mit diesem Namen existiert bereits!";
+                this.success = '';
                 return;
             }
 
             this.crudService.addChild(this.child).subscribe(
                 () => {
                     console.log("erfolg");
+                    this.success = "Erfolgreich gespeichert!";
+                    this.error = '';
                 },
                 (error) => {
                     console.error('Error creating child:', error);

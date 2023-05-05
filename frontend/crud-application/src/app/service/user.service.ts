@@ -7,7 +7,6 @@ import { User } from './User';
   providedIn: 'root',
 })
 export class UserService {
-  private REST_API = 'http://localhost:8080/api/v1';
   private loggedInUser!: User;
 
   constructor(private http: HttpClient) {}

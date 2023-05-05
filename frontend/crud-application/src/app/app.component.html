@@ -7,10 +7,13 @@
             <a class="nav-link font-weight-bold" routerLinkActive="active" routerLink="/login">Logout</a>
         </li>
         <li class="nav-item col-auto" *ngIf="userService.getLoggedInUser()?.admin">
-            <a class="nav-link font-weight-bold" routerLinkActive="active" routerLink="/editChild">Kinder bearbeiten</a>
+            <a class="nav-link font-weight-bold" routerLinkActive="active" routerLink="/editChild">Kinder</a>
         </li>
         <li class="nav-item col-auto" *ngIf="userService.getLoggedInUser()?.admin">
-            <a class="nav-link font-weight-bold" routerLinkActive="active" routerLink="/editEducator">Betreuer bearbeiten</a>
+            <a class="nav-link font-weight-bold" routerLinkActive="active" routerLink="/editEducator">Betreuer</a>
+        </li>
+        <li class="nav-item col-auto"  *ngIf="userService.getLoggedInUser()">
+            <a class="nav-link font-weight-bold" routerLinkActive="active" routerLink="/childs">Meine Kinder</a>
         </li>
     </ul>
 </nav>

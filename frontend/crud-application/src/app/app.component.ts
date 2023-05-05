@@ -9,5 +9,4 @@ import {UserService} from "./service/user.service";
 export class AppComponent {
   title = 'KIWI ';
   constructor(public userService: UserService) {}
-
 }
