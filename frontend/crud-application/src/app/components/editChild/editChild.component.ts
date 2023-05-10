@@ -6,6 +6,7 @@ import {UserService} from "../../service/user.service";
 import {User} from "../../service/User";
 import {Router} from "@angular/router";
 import {ChildService} from "../../service/child.service";
+import {CrudService} from "../../service/crud.service";
 
 @Component({
     selector: 'app-editChild',
@@ -17,11 +18,14 @@ export class EditChildComponent implements OnInit {
 
     children: Child[] = [];
 
-    constructor(private userService:UserService,private childService:ChildService,private http: HttpClient, private cd: ChangeDetectorRef,private router: Router) { }
+    constructor(private crudService:CrudService,private userService:UserService,private childService:ChildService,private http: HttpClient, private cd: ChangeDetectorRef,private router: Router) { }
 
     ngOnInit() {
         this.loadChildren();
     }
+
+
+
 
     loadChildren() {
         this.http.get<Child[]>(`${this.REST_API}/childs`).subscribe(children => {
@@ -47,19 +51,21 @@ export class EditChildComponent implements OnInit {
         const selectedChild = this.children[index];
         this.childService.setEditChild(selectedChild);
         sessionStorage.setItem('editChild', JSON.stringify(selectedChild));
-        //this.router.navigate(['/bewertung']);
+        this.router.navigate(['/updateChild']);
     }
 
     addChild()
     {
         this.router.navigate(['/addChild']);
     }
-    deleteChild(index: number)
-    {
-        const selectedChild = this.children[index];
-        this.childService.setEditChild(selectedChild);
-        sessionStorage.setItem('editChild', JSON.stringify(selectedChild));
-        //this.router.navigate(['/bewertung']);
+
+    deleteChild(id: any, i: any) {
+        console.log(id);
+        if (window.confirm('Do you want to go ahead?')) {
+            this.crudService.deleteChild(id).subscribe(() => {
+                this.children.splice(i, 1);
+            });
+        }
     }
 }
 

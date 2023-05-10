@@ -5,6 +5,7 @@
     <tr>
       <th>ID</th>
       <th>Name</th>
+      <th>Benutzername</th>
       <th></th>
     </tr>
     </thead>
@@ -12,6 +13,7 @@
     <tr *ngFor="let child of children; let i=index">
       <td class="id-column">{{child.id}}</td>
       <td class="name-column">{{child.name}}</td>
+      <td class="username-column">{{child.userId}}</td>
       <td><button class="edit-button" (click)="editChild(i)">Bewerten</button></td>
     </tr>
     </tbody>

@@ -7,7 +7,8 @@
         <thead>
         <tr>
             <th>ID</th>
-            <th>Name</th>
+            <th>Kind</th>
+            <th>Betreuer</th>
             <th></th>
         </tr>
         </thead>
@@ -15,10 +16,11 @@
         <tr *ngFor="let child of children; let i=index">
             <td class="id-column">{{child.id}}</td>
             <td class="name-column">{{child.name}}</td>
+            <td class="username-column">{{child.userId}}</td>
             <td>
                 <div class="d-flex justify-content-between align-items-center">
                     <button class="btn btn-primary edit-button" (click)="editChild(i)">Bearbeiten</button>
-                    <button class="btn btn-danger edit-button" (click)="deleteChild(i)">Entfernen</button>
+                    <button class="btn btn-danger edit-button" (click)="deleteChild(child.id, i)">Entfernen</button>
                 </div>
             </td>
         </tr>

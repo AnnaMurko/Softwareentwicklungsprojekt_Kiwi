@@ -13,6 +13,9 @@ import {ErgebnisComponent} from "./components/ergebnis/ergebnis.component";
 import {EditChildComponent} from "./components/editChild/editChild.component";
 import {EditEducatorComponent} from "./components/editEducator/editEducator.component";
 import {AddChildComponent} from "./components/addChild/addChild.component";
+import {AddEducatorComponent} from "./components/addEducator/addEducator.component";
+import {UpdateChildComponent} from "./components/updateChild/updateChild.component";
+import {UpdateEducatorComponent} from "./components/updateEducator/updateEducator.component";
 
 @NgModule({
   declarations: [
@@ -24,6 +27,9 @@ import {AddChildComponent} from "./components/addChild/addChild.component";
       EditChildComponent,
       EditEducatorComponent,
       AddChildComponent,
+      AddEducatorComponent,
+      UpdateChildComponent,
+      UpdateEducatorComponent,
   ],
   imports: [
     BrowserModule,

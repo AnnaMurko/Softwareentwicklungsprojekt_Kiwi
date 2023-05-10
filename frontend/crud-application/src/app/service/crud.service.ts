@@ -30,13 +30,23 @@ export class CrudService {
         .pipe(catchError(this.handleError));
   }
 
+  addUser(data: User): Observable<any> {
+    let API_URL = `${this.REST_API}/users`;
+    return this.httpClient
+        .post(API_URL, data)
+        .pipe(catchError(this.handleError));
+  }
   // Get all objects
   getChilds():Observable<Child[]> {
     return this.httpClient.get<Child[]>(`${this.REST_API}/childs`);
   }
 
+  // Get all objects
+  getUsers():Observable<User[]> {
+    return this.httpClient.get<User[]>(`${this.REST_API}/users`);
+  }
   // Get single object
-  GetChild(id: any): Observable<any> {
+  getChild(id: any): Observable<any> {
     let API_URL = `${this.REST_API}/childs/${id}`;
     return this.httpClient.get(API_URL, { headers: this.httpHeaders }).pipe(
         map((res: any) => {
@@ -54,9 +64,27 @@ export class CrudService {
         .pipe(catchError(this.handleError));
   }
 
+  updateEducator(id: any, data: any): Observable<any> {
+    let API_URL = `${this.REST_API}/users/${id}`;
+    return this.httpClient
+        .put(API_URL, data, { headers: this.httpHeaders })
+        .pipe(catchError(this.handleError));
+  }
+
+
   // Delete
   deleteChild(id: any): Observable<any> {
     let API_URL = `${this.REST_API}/childs/${id}`;
+
+    let childs = this.getChilds();
+
+    return this.httpClient
+        .delete(API_URL, { headers: this.httpHeaders })
+        .pipe(catchError(this.handleError));
+  }
+
+  deleteUser(id: any): Observable<any> {
+    let API_URL = `${this.REST_API}/users/${id}`;
     return this.httpClient
         .delete(API_URL, { headers: this.httpHeaders })
         .pipe(catchError(this.handleError));

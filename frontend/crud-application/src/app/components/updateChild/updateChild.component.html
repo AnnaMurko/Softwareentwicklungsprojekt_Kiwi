@@ -1,0 +1,21 @@
+<div class="container" xmlns:text-align="http://www.w3.org/1999/xhtml">
+    <h1>Kind bearbeiten</h1>
+    <form (ngSubmit)="updateChild()">
+        <div class="form-group">
+            <label for="childName">Name</label>
+            <input type="text" class="form-control" id="childName" [(ngModel)]="selectedChild.name" name="childName" required />
+        </div>
+        <div class="form-group">
+            <label for="userId">Betreuer</label>
+            <select class="form-control" id="userId" [(ngModel)]="selectedChild.userId" name="userId" required>
+                <option *ngFor="let user of users" [value]="user.id">{{ user.username }}</option>
+            </select>
+        </div>
+
+        <div style="margin-top: 2rem;">
+            <div *ngIf="success" class="alert alert-success">{{success}}</div>
+            <div class="alert alert-danger" *ngIf="error">{{ error }}</div>
+            <button type="submit" class="btn btn-primary">Aktualisieren</button>
+        </div>
+    </form>
+</div>

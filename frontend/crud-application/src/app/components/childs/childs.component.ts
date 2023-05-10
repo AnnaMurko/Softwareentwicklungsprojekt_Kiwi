@@ -21,6 +21,9 @@ export class ChildsComponent implements OnInit {
 
     ngOnInit() {
         this.loadChildren();
+        const annaString = sessionStorage.getItem('loggedInUser');
+        // @ts-ignore
+        console.log(annaString);
     }
 
     loadChildren() {

@@ -8,6 +8,9 @@ import {ErgebnisComponent} from "./components/ergebnis/ergebnis.component";
 import {EditChildComponent} from "./components/editChild/editChild.component";
 import {EditEducatorComponent} from "./components/editEducator/editEducator.component";
 import {AddChildComponent} from "./components/addChild/addChild.component";
+import {AddEducatorComponent} from "./components/addEducator/addEducator.component";
+import {UpdateChildComponent} from "./components/updateChild/updateChild.component";
+import {UpdateEducatorComponent} from "./components/updateEducator/updateEducator.component";
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' },
@@ -18,6 +21,9 @@ const routes: Routes = [
   { path: 'editChild', component: EditChildComponent },
   { path: 'editEducator', component: EditEducatorComponent },
   { path: 'addChild', component: AddChildComponent },
+  { path: 'addEducator', component: AddEducatorComponent },
+  { path: 'updateChild', component: UpdateChildComponent },
+  { path: 'updateEducator', component: UpdateEducatorComponent },
 ];
 
 @NgModule({

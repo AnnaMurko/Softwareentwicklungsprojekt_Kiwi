@@ -5,16 +5,16 @@
         </li>
         <li class="nav-item col">
             <a class="nav-link font-weight-bold" routerLinkActive="active" routerLink="/login">Logout</a>
-        </li>
+        </li><li class="nav-item col-auto"  *ngIf="userService.getLoggedInUser()">
+        <a class="nav-link font-weight-bold" routerLinkActive="active" routerLink="/childs">Meine Kinder</a>
+    </li>
         <li class="nav-item col-auto" *ngIf="userService.getLoggedInUser()?.admin">
             <a class="nav-link font-weight-bold" routerLinkActive="active" routerLink="/editChild">Kinder</a>
         </li>
         <li class="nav-item col-auto" *ngIf="userService.getLoggedInUser()?.admin">
             <a class="nav-link font-weight-bold" routerLinkActive="active" routerLink="/editEducator">Betreuer</a>
         </li>
-        <li class="nav-item col-auto"  *ngIf="userService.getLoggedInUser()">
-            <a class="nav-link font-weight-bold" routerLinkActive="active" routerLink="/childs">Meine Kinder</a>
-        </li>
+
     </ul>
 </nav>
 
