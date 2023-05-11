@@ -8,6 +8,7 @@ import {
   HttpErrorResponse,
 } from '@angular/common/http';
 import {Child} from "./Child";
+import {AriaValues} from "./AriaValues";
 
 @Injectable({
   providedIn: 'root',
@@ -46,7 +47,7 @@ export class CrudService {
     return this.httpClient.get<User[]>(`${this.REST_API}/users`);
   }
   // Get single object
-  getChild(id: any): Observable<any> {
+  getChild(id: any): Observable<Child> {
     let API_URL = `${this.REST_API}/childs/${id}`;
     return this.httpClient.get(API_URL, { headers: this.httpHeaders }).pipe(
         map((res: any) => {
@@ -63,6 +64,21 @@ export class CrudService {
         .put(API_URL, data, { headers: this.httpHeaders })
         .pipe(catchError(this.handleError));
   }
+
+  getBewertungenByChildId(id: any): Observable<AriaValues[]> {
+    let API_URL = `${this.REST_API}/childs/${id}/bewertungen`;
+    return this.httpClient.get<AriaValues[]>(API_URL, { headers: this.httpHeaders }).pipe(
+        catchError(this.handleError)
+    );
+  }
+
+  deleteBewertung(id: any): Observable<any> {
+    let API_URL = `${this.REST_API}/ariaValues/${id}`;
+    return this.httpClient.delete(API_URL, { headers: this.httpHeaders }).pipe(
+        catchError(this.handleError)
+    );
+  }
+
 
   updateEducator(id: any, data: any): Observable<any> {
     let API_URL = `${this.REST_API}/users/${id}`;
@@ -91,18 +107,24 @@ export class CrudService {
   }
 
   // Error
-  handleError(error: HttpErrorResponse) {
-    let errorMessage = '';
+  private handleError(error: any) {
+    let errorMessage = 'Unbekannter Fehler aufgetreten.';
     if (error.error instanceof ErrorEvent) {
-      // Handle client error
-      errorMessage = error.error.message;
+      // Clientseitiger Fehler
+      errorMessage = `Fehler: ${error.error.message}`;
     } else {
-      // Handle server error
-      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+      // Serverseitiger Fehler
+      errorMessage = `Fehlercode: ${error.status}, Fehlermeldung: ${error.message}`;
     }
-    console.log(errorMessage);
-    return throwError(() => {
-      errorMessage;
-    });
+    console.error(errorMessage);
+    return throwError(errorMessage);
   }
+
+  addAriaValue(data: AriaValues): Observable<any> {
+    let API_URL = `${this.REST_API}/ariaValues`;
+    return this.httpClient
+        .post(API_URL, data)
+        .pipe(catchError(this.handleError));
+  }
+
 }

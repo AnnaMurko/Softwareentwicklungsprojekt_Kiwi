@@ -1,10 +1,65 @@
-// Farben definieren
-$primary-color: #007bff;
-$secondary-color: #6c757d;
-$light-color: #f1f1f1; /* Ändern Sie den Wert hier, um die Hintergrundfarbe anzupassen */
+$primary-color: #FFA958;
+$secondary-color: #fff;
+$light-color: #fff; /* Hintergrundfarbe anpassen */
+
+.title {
+  text-align: center;
+  color: $primary-color;
+}
+
+.child-list {
+  margin-top: 2rem;
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th {
+      background-color: $primary-color;
+      color: $secondary-color;
+      padding: 0.75rem;
+      text-align: left;
+    }
+
+    td {
+      padding: 0.75rem;
+    }
+
+    .id-column {
+      width: 10%;
+    }
+
+    .name-column {
+      width: 40%;
+    }
+
+    .username-column {
+      width: 30%;
+    }
+
+    .edit-button {
+      background-color: $primary-color;
+      color: $secondary-color;
+      border: none;
+      border-radius: 0.5rem;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+
+      & + .edit-button {
+        margin-left: 1rem;
+      }
+
+      &:hover {
+        background-color: darken($primary-color, 10%);
+      }
+    }
+  }
+}
 
 h2 {
   text-align: center;
+  color: $primary-color;
 }
 
 .antwort-1 {
@@ -27,17 +82,15 @@ h2 {
   color: red;
 }
 
-// Tabellenstil definieren
 table {
   width: 100%;
   border-collapse: collapse;
   margin: 2rem 0;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
 
-  // Tabellenkopf definieren
   thead {
     background-color: $primary-color;
-    color: #fff;
+    color: $secondary-color;
     text-align: left;
     font-weight: bold;
 
@@ -48,7 +101,6 @@ table {
     }
   }
 
-  // Tabellenkörper definieren
   tbody {
     background-color: $light-color;
 

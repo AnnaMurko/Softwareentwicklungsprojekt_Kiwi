@@ -45,6 +45,19 @@ public class UserController {
         // Speichern Sie das Kind-Objekt in der Datenbank
         return userRepository.save(user);
     }
+    @PutMapping("/users/{id}")
+    public ResponseEntity<User> updateUser(@PathVariable Long id, @RequestBody User updatedUser) {
+        User existingUser = userRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("User not exist with id: " + id));
+
+        existingUser.setUsername(updatedUser.getUsername());
+        existingUser.setPassword(updatedUser.getPassword());
+        existingUser.setAdmin(updatedUser.isAdmin());
+
+        User savedUser = userRepository.save(existingUser);
+        return ResponseEntity.ok(savedUser);
+    }
+
 
     @DeleteMapping("/users/{id}")
     public ResponseEntity<Map<String, Boolean>> deleteUser

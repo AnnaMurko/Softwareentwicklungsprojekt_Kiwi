@@ -55,6 +55,14 @@ export class ChildsComponent implements OnInit {
         sessionStorage.setItem('ChildToBeRated', JSON.stringify(selectedChild));
         this.router.navigate(['/bewertung']);
     }
+
+
+    showBewertungen(index: number) {
+        const childToShowBewertungen = this.children[index];
+        sessionStorage.setItem('childToShowBewertungen', JSON.stringify(childToShowBewertungen));
+        this.router.navigate(['/bewertungenListe']);
+
+    }
 }
 
 

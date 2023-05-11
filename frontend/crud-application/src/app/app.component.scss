@@ -1,6 +1,48 @@
 .nav-link {
   font-weight: bold;
 }
+
 .col .nav-link {
   font-weight: bold;
+}
+
+nav.navbar {
+  background-color: #FFEDD8;
+  border-radius: 0.5rem;
+  padding: 1rem;
+
+  ul.navbar-nav.row {
+    li.nav-item.col,
+    li.nav-item.col-auto {
+      a.nav-link {
+        font-weight: bold;
+        color: #FFA958;
+
+        &:hover,
+        &:focus {
+          color: darken(#FFA958, 10%);
+        }
+      }
+    }
+  }
+}
+
+.container {
+  br {
+    margin-top: 1rem;
+  }
+
+
+
+  h2 {
+    text-align: center;
+    color: #FFA958;
+    font-size: 2rem;
+  }
+
+  hr {
+    border-color: #FFA958;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
 }

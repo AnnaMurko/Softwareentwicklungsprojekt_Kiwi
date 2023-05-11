@@ -1,11 +1,13 @@
 package com.knf.dev.demo.crudapplication.controller;
 
+import com.knf.dev.demo.crudapplication.entity.AriaValues;
 import com.knf.dev.demo.crudapplication.entity.Child;
 import com.knf.dev.demo.crudapplication.entity.User;
 import com.knf.dev.demo.crudapplication.exception.ResourceNotFoundException;
 import com.knf.dev.demo.crudapplication.repository.ChildsRepository;
 import com.knf.dev.demo.crudapplication.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,6 +32,16 @@ public class ChildController {
         }
         return children;
     }
+
+    @GetMapping("/childs/{childId}/bewertungen")
+    public ResponseEntity<List<AriaValues>> getBewertungenByChildId(@PathVariable Long childId) {
+        Child child = childsRepository.findById(childId)
+                .orElseThrow(() -> new ResourceNotFoundException("Child not exist with id: " + childId));
+
+        List<AriaValues> bewertungen = child.getAriaValues();
+        return new ResponseEntity<>(bewertungen, HttpStatus.OK);
+    }
+
 
     @PostMapping("/childs")
     public Child createChild(@RequestBody Child child) {

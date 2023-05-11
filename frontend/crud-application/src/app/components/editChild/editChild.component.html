@@ -1,26 +1,27 @@
 <h1 class="title">Kinder</h1>
-<div class="container d-flex justify-content-end mt-4 mb-4">
-    <button class="btn btn-primary" (click)="addChild()">Hinzufügen</button>
-</div>
 <div class="child-list">
+    <div class="add-button-container">
+        <button class="add-button edit-button" (click)="addChild()">Hinzufügen</button>
+    </div>
     <table>
         <thead>
         <tr>
-            <th>ID</th>
-            <th>Kind</th>
-            <th>Betreuer</th>
+            <th class="id-column">ID</th>
+            <th class="name-column">Kind</th>
+            <th class="username-column">Betreuer</th>
             <th></th>
         </tr>
         </thead>
         <tbody>
         <tr *ngFor="let child of children; let i=index">
-            <td class="id-column">{{child.id}}</td>
-            <td class="name-column">{{child.name}}</td>
-            <td class="username-column">{{child.userId}}</td>
+            <td>{{child.id}}</td>
+            <td>{{child.name}}</td>
+            <td>{{child.userId}}</td>
             <td>
-                <div class="d-flex justify-content-between align-items-center">
+                <div class="edit-buttons-container">
                     <button class="btn btn-primary edit-button" (click)="editChild(i)">Bearbeiten</button>
                     <button class="btn btn-danger edit-button" (click)="deleteChild(child.id, i)">Entfernen</button>
+                    <button class="btn btn-danger edit-button" (click)="showBewertungen(i)">Bewertungen</button>
                 </div>
             </td>
         </tr>

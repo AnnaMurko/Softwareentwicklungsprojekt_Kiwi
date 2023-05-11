@@ -1,64 +1,95 @@
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* die Ausrichtung nach oben setzen */
+  justify-content: flex-start;
   align-items: center;
-  min-height: 100vh; /* min-height anstatt height, um sicherzustellen, dass die Höhe mindestens 100vh beträgt */
-  padding-top: 2rem; /* ein bisschen Abstand von oben hinzufügen */
+  height: 100vh;
+  margin-top: 5%;
 
   h1 {
-    margin-top: 0;
-    margin-bottom: 1rem;
-    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #FFA958;
   }
 
   form {
-    width: 100%;
-    max-width: 400px;
-    padding: 2rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    background-color: #FFEDD8;
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    width: 70%;
 
     .form-group {
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
 
       label {
         display: block;
         margin-bottom: 0.5rem;
+        font-weight: 500;
+        color: #FFA958;
       }
 
-      input,
-      select {
+      input[type="text"],
+      input[type="password"] {
         width: 100%;
-        padding: 0.5rem;
+        padding: 0.75rem;
         font-size: 1rem;
-        border-radius: 5px;
-        border: 1px solid #ccc;
+        border: none;
+        border-radius: 0.5rem;
+        background-color: #FFE9D1;
+        transition: background-color 0.3s;
+
+        &:focus {
+          box-shadow: 0 0 0 0.2rem rgba(255, 169, 88, 0.25);
+          outline: none;
+        }
       }
 
-      .alert {
-        margin-top: 1rem;
-        color: #721c24;
-        background-color: #f8d7da;
-        border-color: #f5c6cb;
-        padding: .75rem 1.25rem;
-        border-radius: .25rem;
+      .form-check-input {
+        margin-right: 0.5rem;
+      }
+
+      .form-check-label {
+        color: #FFA958;
       }
     }
 
     .btn-primary {
       display: block;
-      margin: 0 auto;
-      margin-top: 2rem;
+      width: 100%;
+      padding: 0.75rem;
+      margin-top: 1.5rem;
+      font-size: 1rem;
+      font-weight: 500;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: middle;
+      background-color: #FFA958;
+      border: none;
+      border-radius: 0.5rem;
+      transition: background-color 0.3s, transform 0.3s;
+      color: #fff;
+      cursor: pointer;
+
+      &:hover,
+      &:focus {
+        background-color: darken(#FFA958, 10%);
+        transform: translateY(-2px);
+      }
     }
 
-    .alert-success {
-      margin-top: 1rem;
-      color: #155724;
-      background-color: #d4edda;
-      border-color: #c3e6cb;
-      padding: .75rem 1.25rem;
-      border-radius: .25rem;
+    .alert {
+      margin-top: 2rem;
+
+      &-success {
+        background-color: #dff0d8;
+        color: #3c763d;
+      }
+
+      &-danger {
+        background-color: #f2dede;
+        color: #a94442;
+      }
     }
   }
 }

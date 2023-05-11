@@ -16,6 +16,7 @@ import {AddChildComponent} from "./components/addChild/addChild.component";
 import {AddEducatorComponent} from "./components/addEducator/addEducator.component";
 import {UpdateChildComponent} from "./components/updateChild/updateChild.component";
 import {UpdateEducatorComponent} from "./components/updateEducator/updateEducator.component";
+import {BewertungenListeComponent} from "./components/bewertungenListe/bewertungenListe.component";
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import {UpdateEducatorComponent} from "./components/updateEducator/updateEducato
       AddEducatorComponent,
       UpdateChildComponent,
       UpdateEducatorComponent,
+      BewertungenListeComponent,
   ],
   imports: [
     BrowserModule,

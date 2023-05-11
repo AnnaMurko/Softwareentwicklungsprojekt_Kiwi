@@ -1,0 +1,9 @@
+<div>
+    <h1>Bewertungen für {{ child.name }}</h1>
+    <ul>
+        <li *ngFor="let bewertung of bewertungen; let i = index">
+            <span>{{ bewertung.createdAt }}</span>
+            <button (click)="ansehen(bewertung)">Ansehen</button>
+        </li>
+    </ul>
+</div>

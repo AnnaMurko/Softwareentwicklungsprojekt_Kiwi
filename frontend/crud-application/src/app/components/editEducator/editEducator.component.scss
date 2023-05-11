@@ -1,87 +1,90 @@
-@import url('https://fonts.googleapis.com/css?family=Rainbow');
-// The colorful font 'Rainbow' from Google Fonts
-
-h1 {
-  font-family: 'Rainbow', sans-serif;
-  font-size: 36px;
-  font-weight: bold;
+.title {
   text-align: center;
-  padding: 20px 0;
-  background: linear-gradient(
-                  to right,
-                  red,
-                  orange,
-                  yellow,
-                  green,
-                  blue,
-                  indigo,
-                  violet
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-
-  // Give each letter a different color
-  background-size: 400% 100%;
-  animation: rainbow-text 10s ease infinite;
-
-  @keyframes rainbow-text {
-    0% {
-      background-position: 0 0;
-    }
-    100% {
-      background-position: -1350% 0;
-    }
-  }
+  color: #FFA958;
 }
 
 .child-list {
-  width: 100%;
-  margin: 0 auto;
+  margin-top: 2rem;
+  position: relative;
 
   table {
     width: 100%;
     border-collapse: collapse;
 
-    th, td {
-      text-align: left;
-      padding: 8px;
-    }
-
     th {
-      background-color: #D3D3D3;
-    }
-
-    tr:nth-child(even) {
-      background-color: #f2f2f2;
-    }
-
-    td, th {
-      width: 25%;
+      background-color: #FFA958;
+      color: #fff;
+      padding: 0.75rem;
       text-align: left;
-      padding: 8px;
     }
 
-    .id-column {
-      width: 10%;
-      color: #1e90ff;
+    td {
+      padding: 0.75rem;
     }
 
-    .name-column {
-      width: 70%;
-      color: #228b22;
+    .id-column,
+    .name-column,
+    .username-column {
+      width: 33.33%;
+      text-align: left;
+    }
+
+    .edit-buttons-container {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
     }
 
     .edit-button {
-      background-color: #87cefa;
-      color: white;
+      background-color: #FFA958;
+      color: #fff;
       border: none;
-      padding: 8px 16px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 14px;
-      margin: 4px 2px;
+      border-radius: 0.5rem;
+      padding: 0.5rem 1rem;
+      margin-left: 0.5rem;
       cursor: pointer;
+      transition: background-color 0.3s;
     }
+
+    input[type="checkbox"] {
+      appearance: none;
+      width: 1.5rem;
+      height: 1.5rem;
+      border: 2px solid #FFA958;
+      border-radius: 0.25rem;
+      vertical-align: middle;
+      transition: background-color 0.3s;
+
+      &:checked {
+        background-color: #FFA958;
+        border-color: #FFA958;
+      }
+    }
+  }
+
+  .alert {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #FFA958;
+    color: #fff;
+    border-radius: 0.5rem;
+  }
+
+  .add-button-container {
+    position: absolute;
+    top: -5rem;
+    right: 0;
+    margin: 1rem;
+    z-index: 1;
+  }
+
+  .add-button {
+    background-color: #FFA958;
+    color: #fff;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
   }
 }

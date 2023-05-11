@@ -7,6 +7,7 @@ import {User} from "../../service/User";
 import {Router} from "@angular/router";
 import {ChildService} from "../../service/child.service";
 import {CrudService} from "../../service/crud.service";
+import {AriaValues} from "../../service/AriaValues";
 
 @Component({
     selector: 'app-editChild',
@@ -63,9 +64,24 @@ export class EditChildComponent implements OnInit {
         console.log(id);
         if (window.confirm('Do you want to go ahead?')) {
             this.crudService.deleteChild(id).subscribe(() => {
+                // Löschlogik für Bewertungen des gelöschten Kindes
+                this.crudService.getBewertungenByChildId(id).subscribe((bewertungen: AriaValues[]) => {
+                    bewertungen.forEach((bewertung) => {
+                        this.crudService.deleteBewertung(bewertung.id).subscribe(() => {
+                            console.log('Bewertung gelöscht: ' + bewertung.id);
+                        });
+                    });
+                });
                 this.children.splice(i, 1);
             });
         }
+    }
+
+    showBewertungen(i:any)
+    {
+        const childToShowBewertungen = this.children[i];
+        sessionStorage.setItem('childToShowBewertungen', JSON.stringify(childToShowBewertungen));
+        this.router.navigate(['/bewertungenListe']);
     }
 }
 

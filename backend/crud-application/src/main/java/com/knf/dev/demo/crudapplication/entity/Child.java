@@ -1,7 +1,10 @@
 package com.knf.dev.demo.crudapplication.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.knf.dev.demo.crudapplication.entity.AriaValues;
+import com.knf.dev.demo.crudapplication.entity.User;
 import jakarta.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "childs")
@@ -20,6 +23,9 @@ public class Child {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", referencedColumnName = "id", insertable = false, updatable = false)
     private User user;
+
+    @OneToMany(mappedBy = "child", cascade = CascadeType.ALL)
+    private List<AriaValues> ariaValues;
 
     // getter and setter methods
 
@@ -55,6 +61,14 @@ public class Child {
         this.user = user;
     }
 
+    public List<AriaValues> getAriaValues() {
+        return ariaValues;
+    }
+
+    public void setAriaValues(List<AriaValues> ariaValues) {
+        this.ariaValues = ariaValues;
+    }
+
     // toString method
 
     @Override
@@ -64,6 +78,7 @@ public class Child {
                 ", name='" + name + '\'' +
                 ", userId=" + userId +
                 ", user=" + user +
+                ", ariaValues=" + ariaValues +
                 '}';
     }
 }
