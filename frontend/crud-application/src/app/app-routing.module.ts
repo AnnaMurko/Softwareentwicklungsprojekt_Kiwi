@@ -2,30 +2,30 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import {LoginComponent} from "./components/login/login.component";
-import {ChildsComponent} from "./components/childs/childs.component";
-import {BewertungComponent} from "./components/bewertung/bewertung.component";
-import {ErgebnisComponent} from "./components/ergebnis/ergebnis.component";
-import {EditChildComponent} from "./components/editChild/editChild.component";
-import {EditEducatorComponent} from "./components/editEducator/editEducator.component";
+import {MyChildrenComponent} from "./components/myChildren/myChildren.component";
+import {ValuationComponent} from "./components/valuation/valuation.component";
+import {ValuationResultComponent} from "./components/valuationResult/valuationResult.component";
+import {AllAttendantsComponent} from "./components/allAttendants/allAttendants.component";
 import {AddChildComponent} from "./components/addChild/addChild.component";
-import {AddEducatorComponent} from "./components/addEducator/addEducator.component";
+import {AddAttendantComponent} from "./components/addAttendant/addAttendant.component";
 import {UpdateChildComponent} from "./components/updateChild/updateChild.component";
-import {UpdateEducatorComponent} from "./components/updateEducator/updateEducator.component";
-import {BewertungenListeComponent} from "./components/bewertungenListe/bewertungenListe.component";
+import {UpdateAttendantComponent} from "./components/updateAttendant/updateAttendant.component";
+import {ValuationListComponent} from "./components/valuationList/valuationList.component";
+import {AllChildrenComponent} from "./components/allChildren/allChildren.component";
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' },
   { path: 'login', component: LoginComponent },
-  { path: 'childs', component: ChildsComponent },
-  { path: 'bewertung', component: BewertungComponent },
-  { path: 'ergebnis', component: ErgebnisComponent },
-  { path: 'editChild', component: EditChildComponent },
-  { path: 'editEducator', component: EditEducatorComponent },
+  { path: 'myChildren', component: MyChildrenComponent },
+  { path: 'valuation', component: ValuationComponent },
+  { path: 'valuationResult', component: ValuationResultComponent },
+  { path: 'allChildren', component: AllChildrenComponent },
+  { path: 'allAttendants', component: AllAttendantsComponent },
   { path: 'addChild', component: AddChildComponent },
-  { path: 'addEducator', component: AddEducatorComponent },
+  { path: 'addAttendant', component: AddAttendantComponent },
   { path: 'updateChild', component: UpdateChildComponent },
-  { path: 'updateEducator', component: UpdateEducatorComponent },
-  { path: 'bewertungenListe', component: BewertungenListeComponent },
+  { path: 'updateAttendant', component: UpdateAttendantComponent },
+  { path: 'valuationList', component: ValuationListComponent },
 ];
 
 @NgModule({

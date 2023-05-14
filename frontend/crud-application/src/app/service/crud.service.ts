@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { User } from './User';
+import { Attendant } from './Attendant';
 import { catchError, map } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 import {
@@ -8,7 +8,7 @@ import {
   HttpErrorResponse,
 } from '@angular/common/http';
 import {Child} from "./Child";
-import {AriaValues} from "./AriaValues";
+import {Valuation} from "./Valuation";
 
 @Injectable({
   providedIn: 'root',
@@ -25,30 +25,30 @@ export class CrudService {
 
   // Add
   addChild(data: Child): Observable<any> {
-    let API_URL = `${this.REST_API}/childs`;
+    let API_URL = `${this.REST_API}/children`;
     return this.httpClient
         .post(API_URL, data)
         .pipe(catchError(this.handleError));
   }
 
-  addUser(data: User): Observable<any> {
-    let API_URL = `${this.REST_API}/users`;
+  addAttendant(data: Attendant): Observable<any> {
+    let API_URL = `${this.REST_API}/attendants`;
     return this.httpClient
         .post(API_URL, data)
         .pipe(catchError(this.handleError));
   }
   // Get all objects
-  getChilds():Observable<Child[]> {
-    return this.httpClient.get<Child[]>(`${this.REST_API}/childs`);
+  getChildren():Observable<Child[]> {
+    return this.httpClient.get<Child[]>(`${this.REST_API}/children`);
   }
 
   // Get all objects
-  getUsers():Observable<User[]> {
-    return this.httpClient.get<User[]>(`${this.REST_API}/users`);
+  getAttendants():Observable<Attendant[]> {
+    return this.httpClient.get<Attendant[]>(`${this.REST_API}/attendants`);
   }
   // Get single object
   getChild(id: any): Observable<Child> {
-    let API_URL = `${this.REST_API}/childs/${id}`;
+    let API_URL = `${this.REST_API}/children/${id}`;
     return this.httpClient.get(API_URL, { headers: this.httpHeaders }).pipe(
         map((res: any) => {
           return res || {};
@@ -59,21 +59,21 @@ export class CrudService {
 
   // Update
   updateChild(id: any, data: any): Observable<any> {
-    let API_URL = `${this.REST_API}/childs/${id}`;
+    let API_URL = `${this.REST_API}/children/${id}`;
     return this.httpClient
         .put(API_URL, data, { headers: this.httpHeaders })
         .pipe(catchError(this.handleError));
   }
 
-  getBewertungenByChildId(id: any): Observable<AriaValues[]> {
-    let API_URL = `${this.REST_API}/childs/${id}/bewertungen`;
-    return this.httpClient.get<AriaValues[]>(API_URL, { headers: this.httpHeaders }).pipe(
+  getValuationsByChildId(id: any): Observable<Valuation[]> {
+    let API_URL = `${this.REST_API}/children/${id}/valuations`;
+    return this.httpClient.get<Valuation[]>(API_URL, { headers: this.httpHeaders }).pipe(
         catchError(this.handleError)
     );
   }
 
   deleteBewertung(id: any): Observable<any> {
-    let API_URL = `${this.REST_API}/ariaValues/${id}`;
+    let API_URL = `${this.REST_API}/valuations/${id}`;
     return this.httpClient.delete(API_URL, { headers: this.httpHeaders }).pipe(
         catchError(this.handleError)
     );
@@ -81,7 +81,7 @@ export class CrudService {
 
 
   updateEducator(id: any, data: any): Observable<any> {
-    let API_URL = `${this.REST_API}/users/${id}`;
+    let API_URL = `${this.REST_API}/attendants/${id}`;
     return this.httpClient
         .put(API_URL, data, { headers: this.httpHeaders })
         .pipe(catchError(this.handleError));
@@ -90,17 +90,17 @@ export class CrudService {
 
   // Delete
   deleteChild(id: any): Observable<any> {
-    let API_URL = `${this.REST_API}/childs/${id}`;
+    let API_URL = `${this.REST_API}/children/${id}`;
 
-    let childs = this.getChilds();
+    let childs = this.getChildren();
 
     return this.httpClient
         .delete(API_URL, { headers: this.httpHeaders })
         .pipe(catchError(this.handleError));
   }
 
-  deleteUser(id: any): Observable<any> {
-    let API_URL = `${this.REST_API}/users/${id}`;
+  deleteAttendant(id: any): Observable<any> {
+    let API_URL = `${this.REST_API}/attendants/${id}`;
     return this.httpClient
         .delete(API_URL, { headers: this.httpHeaders })
         .pipe(catchError(this.handleError));
@@ -120,8 +120,8 @@ export class CrudService {
     return throwError(errorMessage);
   }
 
-  addAriaValue(data: AriaValues): Observable<any> {
-    let API_URL = `${this.REST_API}/ariaValues`;
+  addValuations(data: Valuation): Observable<any> {
+    let API_URL = `${this.REST_API}/valuations`;
     return this.httpClient
         .post(API_URL, data)
         .pipe(catchError(this.handleError));

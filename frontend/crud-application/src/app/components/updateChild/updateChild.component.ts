@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { Child } from "../../service/Child";
 import { Router } from "@angular/router";
-import { ChildService } from "../../service/child.service";
+
 import { CrudService } from "../../service/crud.service";
-import { User } from "../../service/User";
+import {ChildService} from "../../service/child.service";
+import {Attendant} from "../../service/Attendant";
 
 @Component({
     selector: 'app-updateChild',
@@ -15,7 +16,7 @@ export class UpdateChildComponent {
     error: string = '';
     success: string = '';
 
-    users: User[] = [];
+    attendants: Attendant[] = [];
 
     constructor(
         private router: Router,
@@ -27,14 +28,14 @@ export class UpdateChildComponent {
         const child = JSON.parse(editChild) as Child;
         this.selectedChild = child;
 
-        // Fetch the list of users to populate the select input
-        this.crudService.getUsers().subscribe(
+        // Fetch the list of attendants to populate the select input
+        this.crudService.getAttendants().subscribe(
             (data) => {
                 // @ts-ignore
-                this.users = data;
+                this.attendants = data;
             },
             (error) => {
-                console.error('Error fetching users:', error);
+                console.error('Error fetching attendants:', error);
             }
         );
     }
@@ -44,7 +45,7 @@ export class UpdateChildComponent {
         console.log(this.selectedChild);
         console.log(this.selectedChild.id);
 
-        this.crudService.getChilds().subscribe((res: any) => {
+        this.crudService.getChildren().subscribe((res: any) => {
             console.log(res);
 
             // Check if the new child name already exists in the list of children, excluding the currently edited child
@@ -59,7 +60,7 @@ export class UpdateChildComponent {
                 this.success = '';
                 return;
             }
-            if(childExists&&child.name===this.selectedChild.name&& child.userId===this.selectedChild.userId)
+            if(childExists&&child.name===this.selectedChild.name&& child.attendantId===this.selectedChild.attendantId)
             {
                 this.error = "Keine Änderungen!";
                 this.success = '';

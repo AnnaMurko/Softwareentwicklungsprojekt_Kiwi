@@ -7,8 +7,8 @@
         </div>
         <div class="form-group">
             <label for="userId">Betreuer</label>
-            <select class="form-control" id="userId" [(ngModel)]="selectedChild.userId" name="userId" required>
-                <option *ngFor="let user of users" [value]="user.id">{{ user.username }}</option>
+            <select class="form-control" id="userId" [(ngModel)]="selectedChild.attendantId" name="userId" required>
+                <option *ngFor="let attendant of attendants" [value]="attendant.id">{{ attendant.name }}</option>
             </select>
         </div>
 

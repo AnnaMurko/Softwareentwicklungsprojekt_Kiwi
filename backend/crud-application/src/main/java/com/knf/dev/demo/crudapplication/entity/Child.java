@@ -1,14 +1,13 @@
 package com.knf.dev.demo.crudapplication.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.knf.dev.demo.crudapplication.entity.AriaValues;
-import com.knf.dev.demo.crudapplication.entity.User;
 import jakarta.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "childs")
-@JsonIgnoreProperties("user")
+@Table(name = "children")
+@JsonIgnoreProperties("attendant")
 public class Child {
 
     @Id
@@ -17,17 +16,19 @@ public class Child {
 
     private String name;
 
-    @Column(name = "user_id")
-    private Long userId;
+    private Date birthday;
+
+    private String gender;
+
+    @Column(name = "attendant_id")
+    private Long attendantId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", referencedColumnName = "id", insertable = false, updatable = false)
-    private User user;
+    @JoinColumn(name = "attendant_id", referencedColumnName = "id", insertable = false, updatable = false)
+    private Attendant attendant;
 
     @OneToMany(mappedBy = "child", cascade = CascadeType.ALL)
-    private List<AriaValues> ariaValues;
-
-    // getter and setter methods
+    private List<Valuation> valuations;
 
     public Long getId() {
         return id;
@@ -45,40 +46,53 @@ public class Child {
         this.name = name;
     }
 
-    public Long getUserId() {
-        return userId;
+    public Date getBirthday() {
+        return birthday;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
     }
 
-    public User getUser() {
-        return user;
+    public String getGender() {
+        return gender;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
-    public List<AriaValues> getAriaValues() {
-        return ariaValues;
+    public Long getAttendantId() {
+        return attendantId;
     }
 
-    public void setAriaValues(List<AriaValues> ariaValues) {
-        this.ariaValues = ariaValues;
+    public void setAttendantId(Long attendantId) {
+        this.attendantId = attendantId;
     }
 
-    // toString method
+    public Attendant getAttendant() {
+        return attendant;
+    }
+
+    public void setAttendant(Attendant attendant) {
+        this.attendant = attendant;
+    }
+
+    public List<Valuation> getValuations() {
+        return valuations;
+    }
+
+    public void setValuations(List<Valuation> valuations) {
+        this.valuations = valuations;
+    }
 
     @Override
     public String toString() {
         return "Child{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", userId=" + userId +
-                ", user=" + user +
-                ", ariaValues=" + ariaValues +
+                ", birthday=" + birthday +
+                ", gender='" + gender + '\'' +
                 '}';
     }
 }

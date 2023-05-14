@@ -7,31 +7,31 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import {LoginComponent} from "./components/login/login.component";
-import {ChildsComponent} from "./components/childs/childs.component";
-import {BewertungComponent} from "./components/bewertung/bewertung.component";
-import {ErgebnisComponent} from "./components/ergebnis/ergebnis.component";
-import {EditChildComponent} from "./components/editChild/editChild.component";
-import {EditEducatorComponent} from "./components/editEducator/editEducator.component";
+import {MyChildrenComponent} from "./components/myChildren/myChildren.component";
+import {ValuationComponent} from "./components/valuation/valuation.component";
+import {ValuationResultComponent} from "./components/valuationResult/valuationResult.component";
+import {AllChildrenComponent} from "./components/allChildren/allChildren.component";
+import {AllAttendantsComponent} from "./components/allAttendants/allAttendants.component";
 import {AddChildComponent} from "./components/addChild/addChild.component";
-import {AddEducatorComponent} from "./components/addEducator/addEducator.component";
+import {AddAttendantComponent} from "./components/addAttendant/addAttendant.component";
 import {UpdateChildComponent} from "./components/updateChild/updateChild.component";
-import {UpdateEducatorComponent} from "./components/updateEducator/updateEducator.component";
-import {BewertungenListeComponent} from "./components/bewertungenListe/bewertungenListe.component";
+import {UpdateAttendantComponent} from "./components/updateAttendant/updateAttendant.component";
+import {ValuationListComponent} from "./components/valuationList/valuationList.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-      ChildsComponent,
-      BewertungComponent,
-      ErgebnisComponent,
-      EditChildComponent,
-      EditEducatorComponent,
+      MyChildrenComponent,
+      ValuationComponent,
+      ValuationResultComponent,
+      AllChildrenComponent,
+      AllAttendantsComponent,
       AddChildComponent,
-      AddEducatorComponent,
+      AddAttendantComponent,
       UpdateChildComponent,
-      UpdateEducatorComponent,
-      BewertungenListeComponent,
+      UpdateAttendantComponent,
+      ValuationListComponent,
   ],
   imports: [
     BrowserModule,

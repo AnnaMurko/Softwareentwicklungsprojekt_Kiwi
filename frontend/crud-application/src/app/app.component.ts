@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {UserService} from "./service/user.service";
-import {User} from "./service/User";
+import {AttendantService} from "./service/attendant.service";
+import {Attendant} from "./service/Attendant";
 
 @Component({
   selector: 'app-root',
@@ -9,13 +9,13 @@ import {User} from "./service/User";
 })
 export class AppComponent implements OnInit {
   title = 'KIWI ';
-  constructor(public userService: UserService) {}
+  constructor(public attendantService: AttendantService) {}
 
   ngOnInit(): void {
 
-    const loggedInUserString = sessionStorage.getItem('loggedInUser');
+    const loggedInAttendantString = sessionStorage.getItem('loggedInAttendant');
     // @ts-ignore
-    const loggedInUser = JSON.parse(loggedInUserString) as User;
-    this.userService.setLoggedInUser(loggedInUser);
+    const loggedInAttendant = JSON.parse(loggedInAttendantString) as Attendant;
+    this.attendantService.setLoggedInAttendant(loggedInAttendant);
   }
 }
