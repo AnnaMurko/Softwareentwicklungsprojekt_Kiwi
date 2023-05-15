@@ -1,3 +1,11 @@
+.container{
+  background-image: url('assets/background.jpg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 100vh;/* Hier wurde ein negativer Wert (-10rem) für den horizontalen Abstand hinzugefügt */
+}
+
 .title {
   text-align: center;
   color: #FFA958;

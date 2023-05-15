@@ -5,6 +5,11 @@
   align-items: center;
   height: 100vh;
   margin-top: 5%;
+  background-image: url('assets/background.jpg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 100vh;
 
   h1 {
     text-align: center;
