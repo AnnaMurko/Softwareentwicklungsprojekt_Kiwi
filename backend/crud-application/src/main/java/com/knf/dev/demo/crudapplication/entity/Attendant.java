@@ -29,10 +29,6 @@ public class Attendant {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public boolean isAdmin() {
         return admin;
     }
@@ -61,12 +57,6 @@ public class Attendant {
     public List<Child> getChildren() {
         return children;
     }
-
-    public void setChildren(List<Child> children) {
-        this.children = children;
-    }
-
-    // toString method
 
     @Override
     public String toString() {
