@@ -32,8 +32,9 @@ export class ValuationResultComponent implements OnInit, AfterViewInit {
             this.child = JSON.parse(loggedInUserString) as Child;
             // @ts-ignore
             const arrayFromSessionStorage = JSON.parse(sessionStorage.getItem('valuation'));
+            console.log(arrayFromSessionStorage);
             this.results = arrayFromSessionStorage;
-
+console.log(arrayFromSessionStorage);
 console.log(arrayFromSessionStorage);
 
             for (let i = 1; i <= 37; i++) {

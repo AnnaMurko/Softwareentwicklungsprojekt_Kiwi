@@ -32,8 +32,8 @@ export class ValuationListComponent implements OnInit {
         );
     }
 
-    ansehen(bewertung: Valuation): void {
-        sessionStorage.setItem('array', JSON.stringify(bewertung.values));
+    ansehen(valuation: Valuation): void {
+        sessionStorage.setItem('valuation', JSON.stringify(valuation.values));
         this.router.navigate(['/valuationResult']);
     }
 }
