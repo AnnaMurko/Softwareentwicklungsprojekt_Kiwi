@@ -56,11 +56,11 @@ export class AllAttendantsComponent implements OnInit {
     deleteEducator(id: any, i: any) {
         this.crudService.getChildren().subscribe(children => {
             if(children.some(child => child.attendantId === id)) {
-                this.errorMessage = 'Betreuer kann nicht gelöscht werden, da sie verbundene Kinder haben.';
+                this.errorMessage = 'Betreuer kann nicht gelöscht werden, da sie verbundene Kinder haben!';
                 return;
             }
 
-            if (window.confirm('Do you want to go ahead?')) {
+            if (window.confirm('Möchtest du den Betreuer wirklich entfernen?')) {
                 this.crudService.deleteAttendant(id).subscribe(() => {
                     this.attendants.splice(i, 1);
                 });

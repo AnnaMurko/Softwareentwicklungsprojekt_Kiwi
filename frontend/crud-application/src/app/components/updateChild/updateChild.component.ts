@@ -28,7 +28,6 @@ export class UpdateChildComponent {
         const child = JSON.parse(editChild) as Child;
         this.selectedChild = child;
 
-        // Fetch the list of attendants to populate the select input
         this.crudService.getAttendants().subscribe(
             (data) => {
                 // @ts-ignore
@@ -48,8 +47,7 @@ export class UpdateChildComponent {
         this.crudService.getChildren().subscribe((res: any) => {
             console.log(res);
 
-            // Check if the new child name already exists in the list of children, excluding the currently edited child
-            const childExists = res.some((child: { name: string; childId: string; }) => child.name === this.selectedChild.name);
+              const childExists = res.some((child: { name: string; childId: string; }) => child.name === this.selectedChild.name);
 
             const editChild = sessionStorage.getItem('editChild');
             // @ts-ignore

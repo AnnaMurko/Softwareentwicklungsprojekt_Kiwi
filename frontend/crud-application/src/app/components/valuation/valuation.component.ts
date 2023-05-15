@@ -47,7 +47,6 @@ export class ValuationComponent implements OnInit {
 
         this.crudService.addValuations(valuation).subscribe(
             (response: any) => {
-                console.log('Valuation hinzugefügt:', response);
                 sessionStorage.setItem('valuation', JSON.stringify(entity));
                 this.router.navigate(['/valuationResult']);
             },

@@ -18,10 +18,10 @@ export class ValuationListComponent implements OnInit {
     ngOnInit(): void {
         const childToShowValuationsString = sessionStorage.getItem('childToShowValuations');
         this.child = JSON.parse(childToShowValuationsString as string) as Child;
-        this.getBewertungenByChildId(this.child.id);
+        this.getValuationsByChildId(this.child.id);
     }
 
-    getBewertungenByChildId(childId: number): void {
+    getValuationsByChildId(childId: number): void {
         this.crudService.getValuationsByChildId(childId).subscribe(
             (response: Valuation[]) => {
                 this.valuations = response;

@@ -30,14 +30,13 @@ export class AddChildComponent {
     loadAttendants() {
         this.registrationService.getAttendants().subscribe((res: any) => {
             this.attendants = res;
-            this.selectedAttendant = this.attendants[0]; // set the default selected attendant to the first attendant in the array
+            this.selectedAttendant = this.attendants[0];
         });
     }
 
     addChild() {
         this.crudService.getChildren().subscribe((res: any) => {
-            // check if the new child name already exists in the list of children
-            const childExists = res.some((child: { name: string; }) => child.name === this.child.name);
+             const childExists = res.some((child: { name: string; }) => child.name === this.child.name);
             if (childExists) {
                 this.error = "Kind mit diesem Namen existiert bereits!";
                 this.success = '';

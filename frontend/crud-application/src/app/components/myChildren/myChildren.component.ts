@@ -3,7 +3,6 @@ import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Child} from "../../service/Child";
 import {AttendantService} from "../../service/attendant.service";
-import {Attendant} from "../../service/Attendant";
 import {Router} from "@angular/router";
 import {ChildService} from "../../service/child.service";
 
@@ -20,18 +19,18 @@ export class MyChildrenComponent implements OnInit {
     constructor(private userService:AttendantService, private childService:ChildService, private http: HttpClient, private cd: ChangeDetectorRef, private router: Router) { }
 
     ngOnInit() {
-        this.loadChildren();
-        const annaString = sessionStorage.getItem('loggedInAttendant');
+        this.fetchChildren();
+        const loggedInAttendant = sessionStorage.getItem('loggedInAttendant');
         // @ts-ignore
-        console.log(annaString);
+        console.log(loggedInAttendant);
     }
 
-    loadChildren() {
+    fetchChildren() {
         this.http.get<Child[]>(`${this.REST_API}/children`).subscribe(children => {
             console.log(children);
             this.children = this.filterChildrenByAttendant(children);
             console.log(this.children);
-            this.cd.detectChanges(); // manuelle Aktualisierung des Templates
+            this.cd.detectChanges();
         });
     }
 
@@ -57,9 +56,9 @@ export class MyChildrenComponent implements OnInit {
     }
 
 
-    showBewertungen(index: number) {
-        const childToShowBewertungen = this.children[index];
-        sessionStorage.setItem('childToShowBewertungen', JSON.stringify(childToShowBewertungen));
+    showValuations(index: number) {
+        const childToShowValuations = this.children[index];
+        sessionStorage.setItem('childToShowValuations', JSON.stringify(childToShowValuations));
         this.router.navigate(['/valuationList']);
 
     }

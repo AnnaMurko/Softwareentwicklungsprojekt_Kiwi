@@ -27,8 +27,7 @@ export class AllChildrenComponent implements OnInit {
     loadChildren() {
         this.http.get<Child[]>(`${this.REST_API}/children`).subscribe(children => {
             this.children = this.getAllChildren(children);
-            console.log(this.children);
-            this.cd.detectChanges(); // manuelle Aktualisierung des Templates
+            this.cd.detectChanges();
         });
     }
 
@@ -59,13 +58,13 @@ export class AllChildrenComponent implements OnInit {
 
     deleteChild(id: any, i: any) {
         console.log(id);
-        if (window.confirm('Do you want to go ahead?')) {
+        if (window.confirm('Möchtest du dieses Kind wirklich entfernen?')) {
             this.crudService.deleteChild(id).subscribe(() => {
                 // Löschlogik für Bewertungen des gelöschten Kindes
-                this.crudService.getValuationsByChildId(id).subscribe((bewertungen: Valuation[]) => {
-                    bewertungen.forEach((bewertung) => {
-                        this.crudService.deleteBewertung(bewertung.id).subscribe(() => {
-                            console.log('Bewertung gelöscht: ' + bewertung.id);
+                this.crudService.getValuationsByChildId(id).subscribe((valuations: Valuation[]) => {
+                    valuations.forEach((valuation) => {
+                        this.crudService.deleteBewertung(valuation.id).subscribe(() => {
+                            console.log('Bewertung gelöscht: ' + valuation.id);
                         });
                     });
                 });

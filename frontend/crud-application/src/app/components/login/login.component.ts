@@ -22,29 +22,25 @@ export class LoginComponent {
     }
     login() {
         if (this.name && this.password) {
-            console.log("hALLO");
             this.loginService.getAttendantID(this.name).subscribe(
                 (attendantId: number) => {
-                    console.log('UserID:', attendantId);
                     if (attendantId) {
                         this.loginService.getAttendantAdminBoolean(this.name).subscribe(
                             // @ts-ignore
                             (admin: boolean) => {
-                                console.log('admin:', admin);
                                 const user = new Attendant(this.name, this.password, attendantId, admin);
                                 this.userService.setLoggedInAttendant(user);
                                 const userString = JSON.stringify(user);
                                 sessionStorage.setItem('loggedInAttendant', userString);
-                                console.log(this.userService.getLoggedInAttendant());
                                 this.router.navigate(['/allChildren']);
                             },
-                            (error) => console.log('Fehler beim Abrufen von isAdmin', error)
+                            (error) => console.log('Fehler beim Abrufen von isAdmin!', error)
                         );
                     } else {
-                        console.log('Ungültige Antwort: userID nicht gefunden');
+                        console.log('Ungültige Antwort: userID nicht gefunden!');
                     }
                 },
-                (error) => console.log('Fehler beim Abrufen der Benutzer-ID', error)
+                (error) => console.log('Fehler beim Abrufen der Benutzer-ID!', error)
             );
         }
     }

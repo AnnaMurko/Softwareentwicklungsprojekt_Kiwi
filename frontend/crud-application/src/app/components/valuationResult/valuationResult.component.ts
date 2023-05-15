@@ -24,27 +24,21 @@ export class ValuationResultComponent implements OnInit, AfterViewInit {
     REST_API: string = 'http://localhost:8080/api/v1';
 
     child!: Child;
-    antworten!: any[];
+    results!: any[];
 
         ngOnInit() {
-            //erstmal child
             const loggedInUserString = sessionStorage.getItem('ChildToBeRated');
             // @ts-ignore
             this.child = JSON.parse(loggedInUserString) as Child;
-            //bewertung
             // @ts-ignore
             const arrayFromSessionStorage = JSON.parse(sessionStorage.getItem('valuation'));
-            this.antworten = arrayFromSessionStorage;
+            this.results = arrayFromSessionStorage;
 
 console.log(arrayFromSessionStorage);
 
             for (let i = 1; i <= 37; i++) {
                 const value = arrayFromSessionStorage[i-1];
                 let i1 = i;
-
-                console.log(arrayFromSessionStorage.length);
-
-                // Hier kannst du den Wert des aktuellen Elements im Array verwenden.
               if(value.startsWith("1"))
                 {
                     const pathElement = document.getElementById(i1.toString()) as unknown as SVGPathElement;
