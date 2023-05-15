@@ -1,26 +1,30 @@
 <div class="container" xmlns:text-align="http://www.w3.org/1999/xhtml">
-<h1 class="title">Kinder</h1>
-<div class="child-list">
-  <table>
-    <thead>
-    <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th></th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let child of children; let i=index">
-      <td class="id-column">{{child.id}}</td>
-      <td class="name-column">{{child.name}}</td>
-      <td>
-        <div class="edit-buttons-container">
-          <button class="edit-button" (click)="editChild(i)">Bewerten</button>
-          <button class="edit-button" (click)="showValuations(i)">Bewertungen</button>
-        </div>
-      </td>
-    </tr>
-    </tbody>
-  </table>
-</div>
+  <h1 class="title">Kinder</h1>
+  <div class="child-list">
+    <table>
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Geburtsdatum</th>
+        <th>Geschlecht</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let child of children; let i=index">
+        <td class="id-column">{{child.id}}</td>
+        <td class="name-column">{{child.name}}</td>
+        <td class="name-column">{{child.birthday | date: 'dd.MM.yyyy'}}</td>
+        <td class="name-column">{{child.gender}}</td>
+        <td>
+          <div class="edit-buttons-container">
+            <button class="edit-button" (click)="editChild(i)">Bewerten</button>
+            <button class="edit-button" (click)="showValuations(i)">Bewertungen</button>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
