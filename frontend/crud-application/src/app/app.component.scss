@@ -28,16 +28,20 @@ nav.navbar {
 }
 
 .container {
+  margin: 0 auto;
+  max-width: 100%;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('assets/background.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  /* Hinzufügen der neuen Regel */
+  min-height: 100vh; /* Setzt die Mindesthöhe des Containers auf die volle Höhe des Viewports */
+
+  /* Der restliche Code bleibt unverändert */
   br {
     margin-top: 1rem;
   }
-
-
-  background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('assets/background.jpg');
-
-  background-size: 100%;
-  background-repeat: no-repeat;
-  background-position: center;
 
   h2 {
     text-align: center;
