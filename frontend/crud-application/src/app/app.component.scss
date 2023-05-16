@@ -1,9 +1,11 @@
 .nav-link {
   font-weight: bold;
+  text-transform: uppercase; /* Fügt Großschreibung hinzu */
 }
 
 .col .nav-link {
   font-weight: bold;
+  text-transform: uppercase;
 }
 
 nav.navbar {
@@ -15,6 +17,7 @@ nav.navbar {
     li.nav-item.col-auto {
       a.nav-link {
         font-weight: bold;
+        text-transform: uppercase;
         color: #FFA958;
 
         &:hover,
@@ -42,6 +45,7 @@ nav.navbar {
     text-align: center;
     color: #FFA958;
     font-size: 2rem;
+    text-transform: uppercase;
   }
 
   hr {
@@ -50,6 +54,7 @@ nav.navbar {
     margin-bottom: 2rem;
   }
 }
+
 .container-main {
   margin: 0 auto;
   max-width: 100%;
@@ -71,6 +76,7 @@ nav.navbar {
     text-align: center;
     color: #FFA958;
     font-size: 2rem;
+    text-transform: uppercase;
   }
 
   hr {
@@ -79,4 +85,3 @@ nav.navbar {
     margin-bottom: 2rem;
   }
 }
-

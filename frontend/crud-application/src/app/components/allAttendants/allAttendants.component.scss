@@ -1,9 +1,11 @@
 .container {
+  text-transform: uppercase;
 }
 
 .title {
   text-align: center;
   color: #FFA958;
+  text-transform: uppercase;
 }
 
 .child-list {
@@ -19,10 +21,13 @@
       color: #fff;
       padding: 0.75rem;
       text-align: left;
+      text-transform: uppercase;
     }
 
     td {
       padding: 0.75rem;
+      text-transform: uppercase;
+      font-weight: bold; /* Text fett schreiben */
     }
 
     .id-column,
@@ -30,6 +35,7 @@
     .username-column {
       width: 33.33%;
       text-align: left;
+      text-transform: uppercase;
     }
 
     .edit-buttons-container {
@@ -47,6 +53,7 @@
       margin-left: 0.5rem;
       cursor: pointer;
       transition: background-color 0.3s;
+      text-transform: uppercase;
     }
 
     input[type="checkbox"] {
@@ -63,6 +70,10 @@
         border-color: #FFA958;
       }
     }
+
+    tbody tr {
+      background-color: rgba(255, 169, 88, 0.5); /* Hintergrundfarbe der Zeilen */
+    }
   }
 
   .alert {
@@ -71,6 +82,7 @@
     background-color: #FFA958;
     color: #fff;
     border-radius: 0.5rem;
+    text-transform: uppercase;
   }
 
   .add-button-container {
@@ -89,5 +101,6 @@
     padding: 0.5rem 1rem;
     cursor: pointer;
     transition: background-color 0.3s;
+    text-transform: uppercase;
   }
 }

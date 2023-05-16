@@ -1,63 +1,69 @@
-.container{
+.container {
+  text-transform: uppercase;
 }
+
 .title {
   text-align: center;
   color: #FFA958;
+  text-transform: uppercase;
 }
 
 .child-list {
   margin-top: 2rem;
   position: relative;
+}
 
-  table {
-    width: 100%;
-    border-collapse: collapse;
+.child-list table {
+  width: 100%;
+  border-collapse: collapse;
+}
 
-    th {
-      background-color: #FFA958;
-      color: #fff;
-      padding: 0.75rem;
-      text-align: left;
-    }
+.child-list th {
+  background-color: #FFA958;
+  color: #fff;
+  padding: 0.75rem;
+  text-align: left;
+  text-transform: uppercase;
+}
 
-    td {
-      padding: 0.75rem;
-    }
+.child-list td {
+  padding: 0.75rem;
+  text-transform: uppercase;
+  font-weight: bold; /* Text fett schreiben */
+}
 
-    .id-column {
-      width: 30%;
-    }
+.child-list .id-column,
+.child-list .name-column,
+.child-list .username-column {
+  width: 33.33%;
+  text-align: left;
+  text-transform: uppercase;
+}
 
-    .name-column {
-      width: 30%;
-    }
+.child-list .edit-buttons-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
 
-    .username-column {
-      width: 30%;
-    }
-
-    .edit-buttons-container {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-    }
-
-    .edit-button {
-      background-color: #FFA958;
-      color: #fff;
-      border: none;
-      border-radius: 0.5rem;
-      padding: 0.5rem 1rem;
-      margin-left: 0.5rem; /* Abstand zwischen den Edit-Buttons */
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-  }
+.child-list .edit-button {
+  background-color: #FFA958;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  margin-left: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-transform: uppercase;
+}
+.child-list tbody tr {
+  background-color: rgba(255, 169, 88, 0.5); /* Noch dunklere Hintergrundfarbe der Zeilen */
 }
 
 .add-button-container {
   position: absolute;
-  top: -5rem; /* Anpassen des Wertes, um den Button höher zu positionieren */
+  top: -5rem;
   right: 0;
   margin: 1rem;
 }
@@ -70,4 +76,5 @@
   padding: 0.5rem 1rem;
   cursor: pointer;
   transition: background-color 0.3s;
+  text-transform: uppercase;
 }

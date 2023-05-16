@@ -9,6 +9,7 @@
   h1 {
     text-align: center;
     margin-bottom: 2rem;
+    text-transform: uppercase;
     color: #FFA958;
   }
 
@@ -26,6 +27,7 @@
         display: block;
         margin-bottom: 0.5rem;
         font-weight: 500;
+        text-transform: uppercase;
         color: #FFA958;
       }
 
@@ -71,6 +73,7 @@
       transition: background-color 0.3s, transform 0.3s;
       color: #fff;
       cursor: pointer;
+      text-transform: uppercase;
 
       &:hover,
       &:focus {
@@ -85,12 +88,35 @@
       &-success {
         background-color: #dff0d8;
         color: #3c763d;
+        text-transform: uppercase;
       }
 
       &-danger {
         background-color: #f2dede;
         color: #a94442;
+        text-transform: uppercase;
       }
     }
+  }
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 2rem;
+  background-color: rgba(240, 240, 240, 0.8); /* Hinzufügen des leicht grauen transparenten Hintergrunds */
+  border: 1px solid #ddd;
+  border-radius: 4px;
+
+  th {
+    background-color: #FFA958;
+    color: #fff;
+    padding: 0.75rem;
+    text-align: left;
+    text-transform: uppercase;
+  }
+
+  td {
+    padding: 0.75rem;
   }
 }

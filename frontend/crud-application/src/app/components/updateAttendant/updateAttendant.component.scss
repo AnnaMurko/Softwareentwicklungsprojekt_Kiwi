@@ -5,91 +5,97 @@
   align-items: center;
   height: 100vh;
   margin-top: 5%;
+}
 
-  h1 {
-    text-align: center;
-    margin-bottom: 2rem;
-    color: #FFA958;
+.container h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #FFA958;
+  text-transform: uppercase; /* Hinzufügen der Großschreibung */
+}
+
+.container form {
+  background-color: #FFEDD8;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  width: 70%;
+}
+
+.container form .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.container form .form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #FFA958;
+  text-transform: uppercase; /* Hinzufügen der Großschreibung */
+}
+
+.container form input[type="text"],
+.container form input[type="password"] {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: #FFE9D1;
+  transition: background-color 0.3s;
+
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgba(255, 169, 88, 0.25);
+    outline: none;
   }
+}
 
-  form {
-    background-color: #FFEDD8;
-    padding: 1rem;
-    border-radius: 1rem;
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-    width: 70%;
+.container form .form-check-input {
+  margin-right: 0.5rem;
+}
 
-    .form-group {
-      margin-bottom: 1.5rem;
+.container form .form-check-label {
+  color: #FFA958;
+  text-transform: uppercase; /* Hinzufügen der Großschreibung */
+}
 
-      label {
-        display: block;
-        margin-bottom: 0.5rem;
-        font-weight: 500;
-        color: #FFA958;
-      }
+.container form .btn-primary {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  background-color: #FFA958;
+  border: none;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s, transform 0.3s;
+  color: #fff;
+  cursor: pointer;
+  text-transform: uppercase; /* Hinzufügen der Großschreibung */
 
-      input[type="text"],
-      input[type="password"] {
-        width: 100%;
-        padding: 0.75rem;
-        font-size: 1rem;
-        border: none;
-        border-radius: 0.5rem;
-        background-color: #FFE9D1;
-        transition: background-color 0.3s;
-
-        &:focus {
-          box-shadow: 0 0 0 0.2rem rgba(255, 169, 88, 0.25);
-          outline: none;
-        }
-      }
-
-      .form-check-input {
-        margin-right: 0.5rem;
-      }
-
-      .form-check-label {
-        color: #FFA958;
-      }
-    }
-
-    .btn-primary {
-      display: block;
-      width: 100%;
-      padding: 0.75rem;
-      margin-top: 1.5rem;
-      font-size: 1rem;
-      font-weight: 500;
-      text-align: center;
-      white-space: nowrap;
-      vertical-align: middle;
-      background-color: #FFA958;
-      border: none;
-      border-radius: 0.5rem;
-      transition: background-color 0.3s, transform 0.3s;
-      color: #fff;
-      cursor: pointer;
-
-      &:hover,
-      &:focus {
-        background-color: darken(#FFA958, 10%);
-        transform: translateY(-2px);
-      }
-    }
-
-    .alert {
-      margin-top: 2rem;
-
-      &-success {
-        background-color: #dff0d8;
-        color: #3c763d;
-      }
-
-      &-danger {
-        background-color: #f2dede;
-        color: #a94442;
-      }
-    }
+  &:hover,
+  &:focus {
+    background-color: darken(#FFA958, 10%);
+    transform: translateY(-2px);
   }
+}
+
+.container form .alert {
+  margin-top: 2rem;
+}
+
+.container form .alert-success {
+  background-color: #dff0d8;
+  color: #3c763d;
+  text-transform: uppercase; /* Hinzufügen der Großschreibung */
+}
+
+.container form .alert-danger {
+  background-color: #f2dede;
+  color: #a94442;
+  text-transform: uppercase; /* Hinzufügen der Großschreibung */
 }

@@ -10,6 +10,7 @@
   h1 {
     text-align: center;
     margin-bottom: 2rem;
+    text-transform: uppercase; /* Hinzufügen der Großschreibung */
     color: #FFA958;
   }
 
@@ -27,6 +28,7 @@
         display: block;
         margin-bottom: 0.5rem;
         font-weight: 500;
+        text-transform: uppercase; /* Hinzufügen der Großschreibung */
         color: #FFA958;
       }
 
@@ -51,6 +53,7 @@
       }
 
       .form-check-label {
+        text-transform: uppercase; /* Hinzufügen der Großschreibung */
         color: #FFA958;
       }
     }
@@ -71,6 +74,7 @@
       transition: background-color 0.3s, transform 0.3s;
       color: #fff;
       cursor: pointer;
+      text-transform: uppercase; /* Hinzufügen der Großschreibung */
 
       &:hover,
       &:focus {
@@ -85,11 +89,13 @@
       &-success {
         background-color: #dff0d8;
         color: #3c763d;
+        text-transform: uppercase; /* Hinzufügen der Großschreibung */
       }
 
       &-danger {
         background-color: #f2dede;
         color: #a94442;
+        text-transform: uppercase; /* Hinzufügen der Großschreibung */
       }
     }
   }

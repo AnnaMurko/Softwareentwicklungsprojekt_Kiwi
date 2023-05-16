@@ -8,6 +8,7 @@ $font-size-base: 16px;
 body {
   font-family: $font-family-base;
   font-size: $font-size-base;
+  text-transform: uppercase; /* Hinzufügen der Großschreibung */
 }
 
 h2 {
@@ -15,6 +16,7 @@ h2 {
   color: $primary-color;
   font-size: 24px;
   margin-bottom: 20px;
+  text-transform: uppercase; /* Hinzufügen der Großschreibung */
 }
 
 form {
@@ -28,6 +30,7 @@ form {
 
 p {
   margin: 0 0 10px;
+  text-transform: uppercase; /* Hinzufügen der Großschreibung */
 }
 
 input[type="range"] {

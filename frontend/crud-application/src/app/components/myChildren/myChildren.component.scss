@@ -1,10 +1,11 @@
-.container{
-
+.container {
+  text-transform: uppercase;
 }
 
 .title {
   text-align: center;
   color: #FFA958;
+  text-transform: uppercase;
 }
 
 .child-list {
@@ -19,22 +20,20 @@
       color: #fff;
       padding: 0.75rem;
       text-align: left;
+      text-transform: uppercase;
     }
 
     td {
       padding: 0.75rem;
+      text-transform: uppercase;
     }
 
-    .id-column {
-      width: 10%;
-    }
-
-    .name-column {
-      width: 40%;
-    }
-
+    .id-column,
+    .name-column,
     .username-column {
-      width: 30%;
+      width: 33.33%;
+      text-align: left;
+      text-transform: uppercase;
     }
 
     .edit-buttons-container {
@@ -49,9 +48,15 @@
       border: none;
       border-radius: 0.5rem;
       padding: 0.5rem 1rem;
-      margin-left: 0.5rem; /* Abstand zwischen den Edit-Buttons */
+      margin-left: 0.5rem;
       cursor: pointer;
       transition: background-color 0.3s;
+      text-transform: uppercase;
     }
   }
+}
+
+.child-list tbody tr {
+  background-color: rgba(255, 169, 88, 0.5);
+  font-weight: bold; /* Text fett schreiben */
 }

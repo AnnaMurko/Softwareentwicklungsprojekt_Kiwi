@@ -1,10 +1,11 @@
 $primary-color: #FFA958;
-$secondary-color: #fff;
-$light-color: #fff; /* Hintergrundfarbe anpassen */
+$secondary-color: #FFF;
+$light-color: #FFF; /* Hintergrundfarbe anpassen */
 
 .title {
   text-align: center;
   color: $primary-color;
+  text-transform: uppercase; /* Hinzufügen der Großschreibung */
 }
 
 .child-list {
@@ -19,6 +20,7 @@ $light-color: #fff; /* Hintergrundfarbe anpassen */
       color: $secondary-color;
       padding: 0.75rem;
       text-align: left;
+      text-transform: uppercase; /* Hinzufügen der Großschreibung */
     }
 
     td {
@@ -45,6 +47,7 @@ $light-color: #fff; /* Hintergrundfarbe anpassen */
       padding: 0.5rem 1rem;
       cursor: pointer;
       transition: background-color 0.3s;
+      text-transform: uppercase; /* Hinzufügen der Großschreibung */
 
       & + .edit-button {
         margin-left: 1rem;
@@ -60,6 +63,7 @@ $light-color: #fff; /* Hintergrundfarbe anpassen */
 h2 {
   text-align: center;
   color: $primary-color;
+  text-transform: uppercase; /* Hinzufügen der Großschreibung */
 }
 
 .antwort-1 {
@@ -97,6 +101,7 @@ table {
     tr {
       th {
         padding: 1rem;
+        text-transform: uppercase; /* Hinzufügen der Großschreibung */
       }
     }
   }
@@ -116,6 +121,7 @@ table {
 
         &:first-child {
           font-weight: bold;
+          text-transform: uppercase; /* Hinzufügen der Großschreibung */
         }
       }
     }

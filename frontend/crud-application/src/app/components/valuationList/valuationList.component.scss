@@ -9,6 +9,7 @@ div {
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 10px;
+    text-transform: uppercase; /* Hinzufügen der Großschreibung */
   }
 
   ul {
@@ -34,6 +35,7 @@ div {
         border-radius: 4px;
         padding: 5px 10px;
         cursor: pointer;
+        text-transform: uppercase; /* Hinzufügen der Großschreibung */
       }
     }
   }
@@ -41,4 +43,5 @@ div {
 
 button {
   margin-top: 10px;
+  text-transform: uppercase; /* Hinzufügen der Großschreibung */
 }
