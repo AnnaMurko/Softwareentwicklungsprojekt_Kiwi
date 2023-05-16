@@ -75,8 +75,8 @@ export class AllChildrenComponent implements OnInit {
 
     showBewertungen(i:any)
     {
-        const childToShowBewertungen = this.children[i];
-        sessionStorage.setItem('childToShowValuations', JSON.stringify(childToShowBewertungen));
+        const childValuations = this.children[i];
+        sessionStorage.setItem('childToShowValuations', JSON.stringify(childValuations));
         this.router.navigate(['/valuationList']);
     }
 }

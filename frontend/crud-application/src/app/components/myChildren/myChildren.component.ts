@@ -21,15 +21,11 @@ export class MyChildrenComponent implements OnInit {
     ngOnInit() {
         this.fetchChildren();
         const loggedInAttendant = sessionStorage.getItem('loggedInAttendant');
-        // @ts-ignore
-        console.log(loggedInAttendant);
     }
 
     fetchChildren() {
         this.http.get<Child[]>(`${this.REST_API}/children`).subscribe(children => {
-            console.log(children);
             this.children = this.filterChildrenByAttendant(children);
-            console.log(this.children);
             this.cd.detectChanges();
         });
     }
