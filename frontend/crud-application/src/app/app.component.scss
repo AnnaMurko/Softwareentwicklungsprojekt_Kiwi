@@ -61,7 +61,7 @@ nav.navbar {
   background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('assets/background.jpg');
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
+  background-size: cover;  /* Anpassen des Entfärbungsgrads */
   background-attachment: fixed; /* Hält das Hintergrundbild an einer festen Position */
 
   /* Hinzufügen der neuen Regel */
