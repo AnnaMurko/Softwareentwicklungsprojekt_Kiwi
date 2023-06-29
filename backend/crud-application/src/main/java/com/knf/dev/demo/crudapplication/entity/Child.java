@@ -14,7 +14,48 @@ public class Child {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    private String lastName;
+    private String firstName;
+    private String note;
+
+    @Override
+    public String toString() {
+        return "Child{" +
+                "id=" + id +
+                ", lastName='" + lastName + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", note='" + note + '\'' +
+                ", birthday=" + birthday +
+                ", gender='" + gender + '\'' +
+                ", attendantId=" + attendantId +
+                ", attendant=" + attendant +
+                ", valuations=" + valuations +
+                '}';
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
     private Date birthday;
 
@@ -38,13 +79,6 @@ public class Child {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public Date getBirthday() {
         return birthday;
@@ -86,13 +120,4 @@ public class Child {
         this.valuations = valuations;
     }
 
-    @Override
-    public String toString() {
-        return "Child{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", birthday=" + birthday +
-                ", gender='" + gender + '\'' +
-                '}';
-    }
 }

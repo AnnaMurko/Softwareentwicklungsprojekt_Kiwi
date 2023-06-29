@@ -15,7 +15,7 @@ public class Attendant {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    private String username;
 
     private String password;
 
@@ -37,12 +37,12 @@ public class Attendant {
         this.admin = admin;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String name) {
+        this.username = name;
     }
 
     public String getPassword() {
@@ -62,7 +62,7 @@ public class Attendant {
     public String toString() {
         return "Attendant{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", name='" + username + '\'' +
                 ", admin=" + admin +
                 '}';
     }

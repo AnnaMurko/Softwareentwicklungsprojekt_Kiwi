@@ -2,13 +2,21 @@
     <h1>Kind bearbeiten</h1>
     <form (ngSubmit)="updateChild()">
         <div class="form-group">
-            <label for="childName">Name</label>
-            <input type="text" class="form-control" id="childName" [(ngModel)]="selectedChild.name" name="childName" required />
+            <label for="firstName">Vorname</label>
+            <input type="text" class="form-control" id="firstName" [(ngModel)]="selectedChild.firstName" name="firstName" required />
+        </div>
+        <div class="form-group">
+            <label for="lastName">Nachname</label>
+            <input type="text" class="form-control" id="lastName" [(ngModel)]="selectedChild.lastName" name="lastName" required />
+        </div>
+        <div class="form-group">
+            <label for="lastName">Notiz</label>
+            <input type="text" class="form-control" id="note" [(ngModel)]="selectedChild.note" name="note" required />
         </div>
         <div class="form-group">
             <label for="userId">Betreuer</label>
             <select class="form-control" id="userId" [(ngModel)]="selectedChild.attendantId" name="userId" required>
-                <option *ngFor="let attendant of attendants" [value]="attendant.id">{{ attendant.name }}</option>
+                <option *ngFor="let attendant of attendants" [value]="attendant.id">{{ attendant.username }}</option>
             </select>
         </div>
 

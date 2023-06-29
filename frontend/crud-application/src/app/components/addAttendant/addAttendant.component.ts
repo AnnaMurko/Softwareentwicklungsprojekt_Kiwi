@@ -18,7 +18,7 @@ export class AddAttendantComponent {
     createAttendant() {
         this.registrationService.getAttendants().subscribe(
             (attendants) => {
-                const existingAttendant = attendants.find(attendant => attendant.name === this.attendant.name);
+                const existingAttendant = attendants.find(attendant => attendant.username === this.attendant.username);
                 if (existingAttendant) {
                     this.error = 'Benutzer existiert bereits!';
                     this.success = '';

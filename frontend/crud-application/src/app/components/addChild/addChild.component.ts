@@ -12,7 +12,7 @@ import { LoginService } from "../../service/login.service";
     styleUrls: ['./addChild.component.scss']
 })
 export class AddChildComponent {
-    child = new Child(0, '', new Date(), '', Number(''));
+    child = new Child(0, '','', new Date(), '','', Number(''));
     attendants: Attendant[] = [];
     selectedAttendant: Attendant | undefined;
     error: string = '';
@@ -36,7 +36,8 @@ export class AddChildComponent {
 
     addChild() {
         this.crudService.getChildren().subscribe((res: any) => {
-             const childExists = res.some((child: { name: string; }) => child.name === this.child.name);
+            const childExists = res.some((child: { firstName: string; lastName: string; childId: string; }) => child.firstName === this.child.firstName && child.lastName === this.child.lastName);
+
             if (childExists) {
                 this.error = "Kind mit diesem Namen existiert bereits!";
                 this.success = '';

@@ -26,7 +26,7 @@ public class AttendantController {
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody Attendant attendantCredentials) {
-        Attendant existingAttendant = attendantRepository.findByName(attendantCredentials.getName());
+        Attendant existingAttendant = attendantRepository.findByUsername(attendantCredentials.getUsername());
         if (existingAttendant == null || !existingAttendant.getPassword().equals(attendantCredentials.getPassword())) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
@@ -48,7 +48,7 @@ public class AttendantController {
         Attendant existingAttendant = attendantRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Attendant not exist with id: " + id));
 
-        existingAttendant.setName(updatedAttendantDetails.getName());
+        existingAttendant.setUsername(updatedAttendantDetails.getUsername());
         existingAttendant.setPassword(updatedAttendantDetails.getPassword());
         existingAttendant.setAdmin(updatedAttendantDetails.isAdmin());
 

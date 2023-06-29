@@ -46,19 +46,18 @@ export class UpdateChildComponent {
 
         this.crudService.getChildren().subscribe((res: any) => {
             console.log(res);
-
-              const childExists = res.some((child: { name: string; childId: string; }) => child.name === this.selectedChild.name);
+            const childExists = res.some((child: { firstName: string; lastName: string; childId: string; }) => child.firstName === this.selectedChild.firstName && child.lastName === this.selectedChild.lastName);
 
             const editChild = sessionStorage.getItem('editChild');
             // @ts-ignore
             const child = JSON.parse(editChild) as Child;
-            if (childExists && child.name!==this.selectedChild.name) {
+            if (childExists && child.firstName!==this.selectedChild.firstName && child.lastName!==this.selectedChild.lastName) {
 
                 this.error = "Kind mit diesem Namen existiert bereits!";
                 this.success = '';
                 return;
             }
-            if(childExists&&child.name===this.selectedChild.name&& child.attendantId===this.selectedChild.attendantId)
+            if(childExists&&child.firstName===this.selectedChild.firstName && child.lastName===this.selectedChild.lastName && child.attendantId===this.selectedChild.attendantId)
             {
                 this.error = "Keine Änderungen!";
                 this.success = '';

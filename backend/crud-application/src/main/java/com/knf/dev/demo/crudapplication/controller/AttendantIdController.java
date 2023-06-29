@@ -20,7 +20,7 @@ public class AttendantIdController {
 
     @GetMapping("/{name}/id")
     public ResponseEntity<Long> getAttendantIdByName(@PathVariable String name) {
-        Attendant attendant = attendantRepository.findByName(name);
+        Attendant attendant = attendantRepository.findByUsername(name);
         if (attendant != null) {
             return ResponseEntity.ok(attendant.getId());
         } else {

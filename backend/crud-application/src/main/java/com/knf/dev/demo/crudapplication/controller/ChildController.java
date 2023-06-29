@@ -59,9 +59,11 @@ public class ChildController {
     @PutMapping("/children/{id}")
     public ResponseEntity<Child> updateChild(@PathVariable Long id, @RequestBody Child childDetails) {
         Child child = childRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Child not exist with id :" + id));
-        child.setName(childDetails.getName());
+        child.setFirstName(childDetails.getFirstName());
+        child.setLastName(childDetails.getLastName());
         child.setAttendantId(childDetails.getAttendantId());
         child.setAttendant(attendantRepository.findById(child.getAttendantId()).orElse(null));
+        child.setNote(childDetails.getNote());
         return ResponseEntity.ok(childRepository.save(child));
     }
 }

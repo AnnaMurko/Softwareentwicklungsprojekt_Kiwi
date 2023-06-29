@@ -18,9 +18,9 @@ public class AttendantAdminController {
         this.attendantRepository = attendantRepository;
     }
 
-    @GetMapping("/{name}/admin")
-    public ResponseEntity<Boolean> getAttendantAdminStatus(@PathVariable String name) {
-        Attendant attendant = attendantRepository.findByName(name);
+    @GetMapping("/{username}/admin")
+    public ResponseEntity<Boolean> getAttendantAdminStatus(@PathVariable String username) {
+        Attendant attendant = attendantRepository.findByUsername(username);
         if (attendant != null) {
             return ResponseEntity.ok(attendant.isAdmin());
         } else {

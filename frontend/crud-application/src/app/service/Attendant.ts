@@ -1,11 +1,11 @@
 export class Attendant {
-  name: string;
+  username: string;
   password: string;
   _id: number;
   admin: boolean;
 
-  constructor(name: string, password: string, id: number, admin: boolean) {
-    this.name = name;
+  constructor(username: string, password: string, id: number, admin: boolean) {
+    this.username = username;
     this.password = password;
     this._id = id;
     this.admin = admin;

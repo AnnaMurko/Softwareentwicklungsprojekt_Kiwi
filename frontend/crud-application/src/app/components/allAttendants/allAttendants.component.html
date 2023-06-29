@@ -16,7 +16,7 @@
             <tbody>
             <tr *ngFor="let attendant of attendants; let i=index">
                 <td class="id-column">{{attendant.id}}</td>
-                <td class="name-column">{{attendant.name}}</td>
+                <td class="name-column">{{attendant.username}}</td>
                 <td><input type="checkbox" [(ngModel)]="attendant.admin"></td>
                 <td>
                     <div class="edit-buttons-container">

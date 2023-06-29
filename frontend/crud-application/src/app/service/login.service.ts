@@ -14,17 +14,17 @@ export class LoginService {
 
     constructor(private httpClient: HttpClient) {}
 
-    public login(name: string, password: string) {
-        return this.httpClient.post<any>(`${this.REST_API}/login`, { name: name, password: password });
+    public login(uername: string, password: string) {
+        return this.httpClient.post<any>(`${this.REST_API}/login`, { uername: uername, password: password });
     }
 
-    public getAttendantID(name: string): Observable<number> {
+    public getAttendantID(uername: string): Observable<number> {
         const headers = new HttpHeaders().set('Access-Control-Allow-Origin', '*');
-        return this.httpClient.get<number>(`${this.REST_API}/attendants/${name}/id`, { headers: headers });
+        return this.httpClient.get<number>(`${this.REST_API}/attendants/${uername}/id`, { headers: headers });
     }
-    public getAttendantAdminBoolean(name: string): Observable<boolean> {
+    public getAttendantAdminBoolean(uername: string): Observable<boolean> {
         const headers = new HttpHeaders().set('Access-Control-Allow-Origin', '*');
-        return this.httpClient.get<boolean>(`${this.REST_API}/attendants/${name}/admin`, { headers: headers });
+        return this.httpClient.get<boolean>(`${this.REST_API}/attendants/${uername}/admin`, { headers: headers });
     }
     public getAttendants(): Observable<Attendant[]>{
         const headers = new HttpHeaders().set('Access-Control-Allow-Origin', '*');

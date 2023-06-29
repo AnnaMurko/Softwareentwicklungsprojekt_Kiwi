@@ -5,18 +5,22 @@
       <thead>
       <tr>
         <th>ID</th>
-        <th>Name</th>
+        <th>Vorname</th>
+        <th>Nachname</th>
         <th>Geburtsdatum</th>
         <th>Geschlecht</th>
+        <th>Notiz</th>
         <th></th>
       </tr>
       </thead>
       <tbody>
       <tr *ngFor="let child of children; let i=index">
         <td class="id-column">{{child.id}}</td>
-        <td class="name-column">{{child.name}}</td>
+        <td class="name-column">{{child.firstName}}</td>
+        <td class="name-column">{{child.lastName}}</td>
         <td class="name-column">{{child.birthday | date: 'dd.MM.yyyy'}}</td>
         <td class="name-column">{{child.gender}}</td>
+        <td class="name-column">{{child.note}}</td>
         <td>
           <div class="edit-buttons-container">
             <button class="edit-button" (click)="editChild(i)">Bewerten</button>

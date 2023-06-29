@@ -11,6 +11,6 @@ import java.util.List;
 @Repository
 public interface AttendantRepository extends JpaRepository<Attendant, Long> {
 
-    Attendant findByName(String name);
+    Attendant findByUsername(String username);
     List<Attendant> findAll();
 }

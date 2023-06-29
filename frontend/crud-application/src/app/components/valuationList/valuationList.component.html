@@ -1,5 +1,5 @@
 <div>
-    <h1>Bewertungen für {{ child.name }}</h1>
+    <h1>Bewertungen für {{ child.firstName + child.lastName }}</h1>
     <ul>
         <li *ngFor="let bewertung of valuations; let i = index">
             <span>{{ bewertung.createdAt }}</span>
