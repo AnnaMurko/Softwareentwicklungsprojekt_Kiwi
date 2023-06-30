@@ -10,7 +10,8 @@ import {LoginService} from "../../service/login.service";
     styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-
+    error: string = '';
+    success: string = '';
     name!: string;
     password!: string;
     ngOnInit() {
@@ -40,7 +41,8 @@ export class LoginComponent {
                         console.log('Ungültige Antwort: userID nicht gefunden!');
                     }
                 },
-                (error) => console.log('Fehler beim Abrufen der Benutzer-ID!', error)
+                (error) => {console.log('Fehler beim Abrufen der Benutzer-ID!', error)
+            this.error = 'Ungültige Anmeldedaten!';}
             );
         }
     }

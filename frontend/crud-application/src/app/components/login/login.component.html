@@ -8,6 +8,11 @@
       <label for="password">Passwort:</label>
       <input type="password" class="form-control" id="password" [(ngModel)]="password" name="password" required>
     </div>
+    <div style="margin-top: 2rem;">
+      <div *ngIf="success" class="alert alert-success">{{success}}</div>
+      <div class="alert alert-danger" *ngIf="error">{{ error }}</div>
+    </div>
+
     <button type="submit" class="btn-primary">Anmelden</button>
   </form>
 </div>
