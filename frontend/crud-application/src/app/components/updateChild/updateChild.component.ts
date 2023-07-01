@@ -57,7 +57,7 @@ export class UpdateChildComponent {
                 this.success = '';
                 return;
             }
-            if(childExists&&child.firstName===this.selectedChild.firstName && child.lastName===this.selectedChild.lastName && child.attendantId===this.selectedChild.attendantId)
+            if(childExists&&child.firstName===this.selectedChild.firstName && child.lastName===this.selectedChild.lastName && child.attendantId===this.selectedChild.attendantId && child.note===this.selectedChild.note)
             {
                 this.error = "Keine Änderungen!";
                 this.success = '';
